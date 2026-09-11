@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Sora, JetBrains_Mono } from 'next/font/google';
+import { Sora } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
@@ -7,13 +7,6 @@ const sora = Sora({
   subsets: ['latin'],
   variable: '--font-sora',
   weight: ['300', '400', '500', '600', '700', '800'],
-  display: 'swap',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
 
@@ -34,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${sora.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={sora.variable}>
       <body>
         {children}
         <Analytics />

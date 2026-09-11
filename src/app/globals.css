@@ -24,9 +24,12 @@
   --status-alert: #ef4444;
   --status-warning: #f59e0b;
 
-  --container-width: 1260px;
+  --container-width: 1200px;
   --transition-fast: 0.16s ease;
   --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --font-sora: 'Sora', sans-serif;
+  --font-mono: var(--font-sora), sans-serif;
+  --font-sans: var(--font-sora), sans-serif;
 }
 
 *, *::before, *::after {
@@ -92,16 +95,16 @@ body::after {
 
 /* Typography Utilities */
 .mono {
-  font-family: var(--font-mono), 'SF Mono', Menlo, Consolas, monospace;
-  letter-spacing: -0.02em;
+  font-family: var(--font-sora), -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .tactical-tag {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: var(--text-dim);
   display: inline-flex;
   align-items: center;
@@ -120,7 +123,7 @@ body::after {
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 1.75rem;
+  padding: 0 clamp(1.5rem, 3vw, 2.25rem);
 }
 
 /* ==========================================================================
@@ -188,7 +191,7 @@ body::after {
 }
 
 .brand-badge {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.65rem;
   letter-spacing: 0.08em;
   padding: 0.2rem 0.55rem;
@@ -229,7 +232,7 @@ body::after {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.68rem;
   color: var(--text-dim);
   background: rgba(255, 255, 255, 0.03);
@@ -257,16 +260,23 @@ body::after {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-family: var(--font-mono), monospace;
-  font-size: 0.8rem;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.82rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.75rem 1.45rem;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  padding: 0.8rem 1.6rem;
   text-decoration: none;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
   border-radius: 0;
+  line-height: 1;
+}
+
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .btn-primary {
@@ -278,7 +288,6 @@ body::after {
 .btn-primary:hover {
   background: #d4d4d4;
   border-color: #d4d4d4;
-  transform: translateY(-1px);
 }
 
 .btn-secondary {
@@ -293,17 +302,39 @@ body::after {
 }
 
 .btn-sm {
-  padding: 0.45rem 0.95rem;
-  font-size: 0.72rem;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.78rem;
+}
+
+.header-demo-btn {
+  padding: 0.65rem 1.35rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+.btn-arrow-svg {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  position: relative;
+  top: -1px;
+  transition: transform var(--transition-fast);
+}
+
+.btn:hover .btn-arrow-svg {
+  transform: translateX(3px);
 }
 
 .btn-arrow {
   transition: transform var(--transition-fast);
   display: inline-block;
+  position: relative;
+  top: -1px;
 }
 
 .btn:hover .btn-arrow {
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
 /* ==========================================================================
@@ -325,7 +356,7 @@ body::after {
 }
 
 .hero-coords {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.72rem;
   color: var(--text-dark);
 }
@@ -349,7 +380,7 @@ body::after {
 }
 
 .hero-subtitle {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: clamp(1.1rem, 2.4vw, 1.8rem);
   font-weight: 400;
   color: var(--text-dim);
@@ -400,7 +431,7 @@ body::after {
   padding: 0.7rem 1.25rem;
   background: #080808;
   border-bottom: 1px solid var(--border-hairline);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.72rem;
   color: var(--text-dim);
 }
@@ -457,7 +488,7 @@ body::after {
 }
 
 .query-input-icon {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   color: var(--text-dim);
   font-weight: 700;
 }
@@ -466,14 +497,14 @@ body::after {
   flex: 1;
   background: transparent;
   border: none;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.88rem;
   color: var(--text-white);
   outline: none;
 }
 
 .query-shortcut-tag {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.65rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-hairline);
@@ -521,7 +552,7 @@ body::after {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.72rem;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
@@ -603,7 +634,7 @@ body::after {
   background: #000000;
   border: 1px solid rgba(255, 255, 255, 0.8);
   color: #ffffff;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.62rem;
   font-weight: 600;
   padding: 0.15rem 0.45rem;
@@ -622,7 +653,7 @@ body::after {
   position: absolute;
   bottom: -20px;
   right: -1px;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.58rem;
   color: rgba(255, 255, 255, 0.7);
   background: rgba(0, 0, 0, 0.7);
@@ -668,7 +699,7 @@ body::after {
 .timeline-meta {
   display: flex;
   justify-content: space-between;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.65rem;
   color: var(--text-dim);
 }
@@ -687,7 +718,7 @@ body::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.72rem;
   color: var(--text-white);
   font-weight: 600;
@@ -731,7 +762,7 @@ body::after {
 }
 
 .event-type-badge {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -740,7 +771,7 @@ body::after {
 }
 
 .event-timestamp {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.65rem;
   color: var(--text-dark);
 }
@@ -755,7 +786,7 @@ body::after {
 .event-metadata-row {
   display: flex;
   gap: 0.75rem;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.62rem;
   color: var(--text-dark);
 }
@@ -781,7 +812,7 @@ body::after {
 }
 
 .section-num {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--text-white);
@@ -836,7 +867,7 @@ body::after {
   padding: 1rem 1.5rem;
   background: #0a0a0a;
   border-bottom: 1px solid var(--border-hairline);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -853,7 +884,7 @@ body::after {
 }
 
 .matrix-col-title {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -895,13 +926,13 @@ body::after {
 
 .matrix-icon-cross {
   color: #777;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-weight: bold;
 }
 
 .matrix-icon-check {
   color: var(--text-white);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-weight: bold;
 }
 
@@ -928,7 +959,7 @@ body::after {
 }
 
 .section-subtitle {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.95rem;
   color: var(--text-dim);
   margin-top: 0.5rem;
@@ -966,7 +997,7 @@ body::after {
 }
 
 .cap-index {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.72rem;
   color: var(--text-dark);
 }
@@ -978,7 +1009,7 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.8rem;
   color: var(--text-white);
 }
@@ -1002,7 +1033,7 @@ body::after {
   margin-top: 2rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--border-hairline);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.68rem;
   color: var(--text-dark);
   display: flex;
@@ -1047,7 +1078,7 @@ body::after {
 }
 
 .presets-label {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.72rem;
   text-transform: uppercase;
   color: var(--text-dark);
@@ -1091,7 +1122,7 @@ body::after {
 .preset-meta {
   display: flex;
   justify-content: space-between;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.65rem;
   color: var(--text-dark);
 }
@@ -1101,7 +1132,7 @@ body::after {
 }
 
 .preset-query-text {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.88rem;
   font-weight: 500;
   color: var(--text-offwhite);
@@ -1126,7 +1157,7 @@ body::after {
   padding: 0.85rem 1.5rem;
   background: #080808;
   border-bottom: 1px solid var(--border-hairline);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.75rem;
 }
 
@@ -1174,7 +1205,7 @@ body::after {
 .sim-panel-title {
   padding: 1rem 1.25rem;
   border-bottom: 1px solid var(--border-hairline);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -1193,7 +1224,7 @@ body::after {
 .breakdown-row {
   display: flex;
   justify-content: space-between;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.72rem;
   margin-bottom: 0.5rem;
 }
@@ -1236,7 +1267,7 @@ body::after {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.4rem;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.68rem;
 }
 
@@ -1262,7 +1293,7 @@ body::after {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.62rem;
   color: var(--text-dark);
   border-top: 1px dashed var(--border-hairline);
@@ -1325,7 +1356,7 @@ body::after {
 }
 
 .statement-annotation {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.85rem;
   letter-spacing: 0.12em;
   color: var(--text-dim);
@@ -1366,7 +1397,7 @@ body::after {
 }
 
 .env-code {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.7rem;
   color: var(--text-dark);
   margin-bottom: 1.5rem;
@@ -1390,7 +1421,7 @@ body::after {
   margin-top: 2rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border-hairline);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.65rem;
   color: var(--text-dark);
   text-transform: uppercase;
@@ -1440,7 +1471,7 @@ body::after {
 }
 
 .specs-title {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -1461,7 +1492,7 @@ body::after {
 .specs-item {
   display: flex;
   justify-content: space-between;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.8rem;
 }
 
@@ -1551,7 +1582,7 @@ body::after {
 }
 
 .modal-title {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -1563,7 +1594,7 @@ body::after {
   background: transparent;
   border: 1px solid var(--border-hairline);
   color: var(--text-dim);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.9rem;
   width: 28px;
   height: 28px;
@@ -1596,7 +1627,7 @@ body::after {
 
 .form-label {
   display: block;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -1668,74 +1699,106 @@ body::after {
    FOOTER
    ========================================================================== */
 .site-footer {
-  padding: 5.5rem 0 3.5rem 0;
+  padding: 4rem 0 2.75rem 0;
   background: #020202;
   border-top: 1px solid var(--border-hairline);
 }
 
-.footer-main-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 4rem;
+.footer-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 3.5rem;
+  padding-bottom: 3rem;
 }
 
-.footer-brand-wrap {
+.footer-brand-block {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
+  max-width: 440px;
 }
 
 .footer-desc {
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   color: var(--text-dim);
-  max-width: 320px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-.footer-col-title {
-  font-family: var(--font-mono), monospace;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-white);
-  margin-bottom: 1.25rem;
-}
-
-.footer-link-list {
-  list-style: none;
+.footer-meta-stack {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  align-items: flex-end;
+  gap: 0.85rem;
 }
 
-.footer-link {
-  font-size: 0.85rem;
-  color: var(--text-dim);
-  text-decoration: none;
+.footer-meta-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.82rem;
+}
+
+.footer-tag-label {
+  color: #666666;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   transition: color var(--transition-fast);
 }
 
-.footer-link:hover {
-  color: var(--text-white);
+.footer-link-val {
+  color: #9e9e9e;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
 }
 
-.footer-bottom-bar {
-  padding-top: 2rem;
+.footer-link-val:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footer-meta-line:hover .footer-tag-label {
+  color: #888888;
+}
+
+.footer-bottom-row {
+  padding-top: 1.75rem;
   border-top: 1px solid var(--border-hairline);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-family: var(--font-mono), monospace;
+  justify-content: space-between;
+}
+
+.footer-copyright {
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.72rem;
   color: var(--text-dark);
 }
 
-.footer-status-pill {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+@media (max-width: 860px) {
+  .site-footer {
+    padding: 3rem 0 2rem 0;
+  }
+
+  .footer-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .footer-meta-stack {
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .footer-bottom-row {
+    padding-top: 1.5rem;
+  }
 }
 
 /* ==========================================================================
@@ -1887,7 +1950,7 @@ body::after {
 }
 
 .mobile-link-num {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 0.72rem;
   color: var(--text-dark);
   min-width: 28px;
@@ -1902,7 +1965,7 @@ body::after {
 }
 
 .mobile-link-arrow {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sora), sans-serif;
   font-size: 1rem;
   color: var(--text-dark);
   transition: transform var(--transition-fast), color var(--transition-fast);
@@ -1955,8 +2018,8 @@ body::after {
   }
 
   .header-demo-btn {
-    padding: 0.45rem 0.85rem;
-    font-size: 0.72rem;
+    padding: 0.55rem 1.15rem;
+    font-size: 0.75rem;
   }
 
   .mobile-menu-toggle {
@@ -1986,14 +2049,139 @@ body::after {
   .demo-cta-card {
     padding: 3.5rem 1.5rem;
   }
+}
 
-  .footer-main-grid {
-    grid-template-columns: 1fr;
+/* ==========================================================================
+   CONTOUR-STYLE CTA BANNER COMPONENT
+   Dithered Topo Texture, Halftone Stipple Overlay, Sora Typography
+   ========================================================================== */
+
+.cta-banner-section {
+  padding: 5rem 0;
+  position: relative;
+  width: 100%;
+}
+
+.cta-banner-card {
+  position: relative;
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+}
+
+.cta-banner-bg-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: 
+    linear-gradient(90deg, #000000 0%, #000000 32%, rgba(0, 0, 0, 0.75) 54%, rgba(0, 0, 0, 0.25) 78%, rgba(0, 0, 0, 0.55) 100%),
+    url('/assets/cta-banner-bg.jpg');
+  background-position: right center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* Halftone stipple dot pattern overlay */
+.cta-banner-halftone-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 4px 4px;
+  mask-image: linear-gradient(90deg, transparent 20%, rgba(0, 0, 0, 0.5) 45%, rgba(0, 0, 0, 1) 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 20%, rgba(0, 0, 0, 0.5) 45%, rgba(0, 0, 0, 1) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cta-banner-corner-reticle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.cta-banner-inner {
+  position: relative;
+  z-index: 4;
+  padding: 4rem 3.5rem;
+  max-width: 620px;
+}
+
+.cta-banner-heading {
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+.cta-banner-subtext {
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(0.92rem, 1.15vw, 1.02rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: #9c9c9c;
+  max-width: 520px;
+  margin-bottom: 2.25rem;
+  letter-spacing: -0.01em;
+}
+
+.cta-banner-action {
+  display: flex;
+  align-items: center;
+}
+
+.cta-banner-btn {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  padding: 0.75rem 1.6rem;
+  border-radius: 0;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.cta-banner-btn:hover {
+  background-color: #d4d4d4;
+  border-color: #d4d4d4;
+  color: #000000;
+}
+
+@media (max-width: 860px) {
+  .cta-banner-section {
+    padding: 3rem 0;
   }
 
-  .footer-bottom-bar {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
+  .cta-banner-card {
+    min-height: auto;
+  }
+
+  .cta-banner-inner {
+    padding: 3.5rem 2rem;
+  }
+
+  .cta-banner-heading {
+    font-size: 2.2rem;
+  }
+
+  .cta-banner-subtext {
+    font-size: 0.95rem;
   }
 }
+
