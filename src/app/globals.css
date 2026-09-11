@@ -152,8 +152,10 @@ body::after {
 }
 
 .brand-logo-img {
-  height: 24px;
+  height: 26px;
   width: auto;
+  max-width: 220px;
+  object-fit: contain;
   filter: brightness(0) invert(1);
   display: block;
 }

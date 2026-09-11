@@ -247,11 +247,10 @@ export default function SentinelHome() {
         <div className="container header-container">
           <a href="#" className="brand-wrapper" aria-label="Sentinel Homepage">
             <img
-              src="/assets/sentinel-icon.png"
-              alt="Sentinel Icon"
-              className="brand-logo-icon"
+              src="/assets/sentinel-logo.png"
+              alt="Sentinel"
+              className="brand-logo-img"
             />
-            <span className="brand-name">SENTINEL</span>
             <span className="brand-badge">By Bluevale Defence</span>
           </a>
 
@@ -1108,14 +1107,11 @@ export default function SentinelHome() {
         <div className="container">
           <div className="footer-main-grid">
             <div className="footer-brand-wrap">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <img
-                  src="/assets/sentinel-icon.png"
-                  alt="Sentinel Icon"
-                  className="brand-logo-icon"
-                />
-                <span className="brand-name" style={{ fontSize: '1.1rem' }}>SENTINEL</span>
-              </div>
+              <img
+                src="/assets/sentinel-logo.png"
+                alt="Sentinel"
+                className="brand-logo-img"
+              />
               <p className="footer-desc">
                 AI Video Intelligence Platform engineered for defence, security, and critical infrastructure environments.
               </p>
