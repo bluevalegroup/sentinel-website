@@ -132,13 +132,13 @@ export default function SentinelHome() {
                 </a>
               </li>
               <li>
-                <a href="#environments" className="nav-link">
-                  Environments
+                <a href="#deployment" className="nav-link">
+                  Deployment
                 </a>
               </li>
               <li>
-                <a href="#deployment" className="nav-link">
-                  Deployment
+                <a href="#environments" className="nav-link">
+                  Environments
                 </a>
               </li>
             </ul>
@@ -190,22 +190,22 @@ export default function SentinelHome() {
             </li>
             <li>
               <a 
-                href="#environments" 
-                className="mobile-nav-link"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <span className="mobile-link-num">02</span>
-                <span className="mobile-link-text">Environments</span>
-              </a>
-            </li>
-            <li>
-              <a 
                 href="#deployment" 
                 className="mobile-nav-link"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="mobile-link-num">03</span>
+                <span className="mobile-link-num">02</span>
                 <span className="mobile-link-text">Deployment</span>
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#environments" 
+                className="mobile-nav-link"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="mobile-link-num">03</span>
+                <span className="mobile-link-text">Environments</span>
               </a>
             </li>
           </ul>
