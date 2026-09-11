@@ -141,6 +141,7 @@ export default function RootLayout({
         },
         description:
           'AI Video Intelligence Platform for real-time natural language search, anomaly detection, and automated video investigation across distributed camera streams.',
+        applicationSubCategory: 'AI Video Intelligence & CCTV Video Analytics',
         featureList: [
           'Natural Language Video Search',
           'Autonomous Multi-Camera Tracking',
@@ -148,6 +149,18 @@ export default function RootLayout({
           'Zero-Latency Stream Processing',
           'Air-Gapped Infrastructure Support',
           'Real-time Anomaly Detection',
+          'Object and Action Retrieval',
+          'RTSP and ONVIF Camera Stream Integration',
+        ],
+        knowsAbout: [
+          'Natural Language Video Search',
+          'Computer Vision Surveillance',
+          'CCTV Video Analytics',
+          'Multi-Camera Tracking',
+          'Perimeter Breach Detection',
+          'Sovereign Air-Gapped AI',
+          'Real-Time Security Anomaly Detection',
+          'Video Forensic Investigation',
         ],
         author: {
           '@id': 'https://bluevalegrp.com/#organization',
@@ -159,26 +172,50 @@ export default function RootLayout({
         mainEntity: [
           {
             '@type': 'Question',
-            name: 'What is Sentinel?',
+            name: 'How can I search CCTV or security camera footage using natural language?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Sentinel is an AI Video Intelligence Platform developed by Bluevale Defence. It connects directly to your existing camera infrastructure to allow security operators to search, understand, and investigate footage in real time using natural language.',
+              text: "Modern AI video intelligence platforms like Sentinel translate live and recorded camera streams into semantic intelligence. Security operators can type plain-language queries—such as 'a person passing a bag to another person', 'a person in a red jacket', or 'a white delivery van'—and retrieve matching footage and timestamps across hundreds of cameras in seconds, replacing hours of manual video review.",
             },
           },
           {
             '@type': 'Question',
-            name: 'How does natural language search work across security cameras?',
+            name: 'What is an AI video intelligence platform and how does it work?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: "Sentinel translates visual video streams into semantic intelligence, enabling operators to type plain-language queries—like 'a person in a red jacket' or 'a white delivery van'—to instantly locate matching events across hundreds of cameras.",
+              text: 'An AI video intelligence platform connects directly to IP and CCTV camera networks (via standard RTSP/ONVIF streams) to continuously analyze video in real time. Using deep computer vision models, it understands objects, humans, vehicles, and behavioral actions, automatically detecting security anomalies and enabling instant natural language video investigations.',
             },
           },
           {
             '@type': 'Question',
-            name: 'Can Sentinel be deployed in air-gapped or classified environments?',
+            name: 'Can AI track a specific person or vehicle across hundreds of camera feeds?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Yes. Sentinel is built with sovereign, air-gapped architecture. All AI inference and video data stay completely within your local infrastructure, with zero cloud dependency or external data leakage.',
+              text: 'Yes. Sentinel correlates visual characteristics—such as clothing colors, carried objects, and vehicle attributes—across your entire distributed camera network. Operators can track a subject or event seamlessly across multiple camera views to reconstruct full movement timelines without external cloud processing.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'What are the best on-premise, air-gapped video analytics solutions for critical infrastructure and defence?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Sentinel by Bluevale Defence is engineered specifically for sovereign, air-gapped, and mission-critical environments. It operates completely on-premise with zero cloud connectivity or external data transmission, ensuring defence bases, energy infrastructure, government sites, and industrial facilities maintain full operational sovereignty.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'How does AI video intelligence reduce false alarms compared to traditional motion detection?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Traditional security camera motion detection triggers alerts on simple pixel changes caused by weather, moving shadows, leaves, or wildlife. AI video intelligence understands scene semantics and context, distinguishing benign environmental motion from genuine threats such as perimeter breaches, unauthorized vehicle movement, or suspicious interactions.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Can Sentinel integrate with existing security cameras without replacing hardware?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. Sentinel is hardware-agnostic and connects to existing security camera infrastructure via standard RTSP and ONVIF video feeds. Organizations can deploy Sentinel on local edge servers or private data centers without replacing cameras or rewiring facilities.',
             },
           },
         ],
