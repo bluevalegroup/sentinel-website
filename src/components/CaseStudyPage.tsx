@@ -441,7 +441,7 @@ export function CaseStudyPage({
                       disabled={isSubmitting}
                       style={{ marginTop: '1.25rem' }}
                     >
-                      {isSubmitting ? 'TRANSMITTING...' : 'REQUEST DOSSIER'}
+                      {isSubmitting ? 'SENDING...' : 'REQUEST DOSSIER'}
                     </button>
                   </form>
                 </div>
@@ -452,7 +452,7 @@ export function CaseStudyPage({
                   Dossier Request Received
                 </h2>
                 <p className="modal-instruction" style={{ maxWidth: '440px', lineHeight: 1.6 }}>
-                  Thank you. Our deployment engineering team will review your clearance and transmit the technical dossier to your official email shortly.
+                  Thank you. Our deployment engineering team will review your request and send the technical dossier to your official email shortly.
                 </p>
                 <button
                   type="button"

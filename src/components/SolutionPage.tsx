@@ -465,7 +465,7 @@ export function SolutionPage({
                       className="btn btn-primary form-submit-btn"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? 'TRANSMITTING...' : 'REQUEST BRIEFING'}
+                      {isSubmitting ? 'SENDING...' : 'REQUEST BRIEFING'}
                     </button>
                   </form>
                 </div>
@@ -473,7 +473,7 @@ export function SolutionPage({
             ) : (
               <div className="form-success-state">
                 <h2 className="modal-title" style={{ marginBottom: '0.85rem' }}>
-                  Briefing Request Transmitted
+                  Briefing Request Received
                 </h2>
                 <p className="modal-instruction" style={{ maxWidth: '440px', lineHeight: 1.6 }}>
                   Thank you. Our deployment engineering team has received your briefing request and will reach out with technical dossier specifications shortly.
