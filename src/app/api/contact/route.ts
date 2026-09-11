@@ -4,7 +4,7 @@ import { Resend } from "resend";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { fullName, workEmail, orgName, country, envType, cameraCount, requirements } = body;
+    const { fullName, workEmail, orgName, country, envType, cameraCount, requirements, source } = body;
 
     if (!fullName || !workEmail) {
       return NextResponse.json(
@@ -13,6 +13,7 @@ export async function POST(req: Request) {
       );
     }
 
+    const leadSource = source || "Direct Website Form";
     const apiKey = process.env.RESEND_API_KEY;
     const recipientEmail = process.env.CONTACT_RECIPIENT_EMAIL || "nummitech@gmail.com";
     const fromEmail = process.env.CONTACT_FROM_EMAIL || "Sentinel Enquiries <onboarding@resend.dev>";
@@ -20,7 +21,7 @@ export async function POST(req: Request) {
     if (!apiKey) {
       console.warn(
         "[Sentinel API] RESEND_API_KEY is not set in .env.local. Submission logged to console:",
-        { fullName, workEmail, orgName, country, envType, cameraCount, requirements }
+        { fullName, workEmail, orgName, country, envType, cameraCount, requirements, leadSource }
       );
       return NextResponse.json({
         success: true,
@@ -31,7 +32,7 @@ export async function POST(req: Request) {
 
     const resend = new Resend(apiKey);
 
-    const emailSubject = `[Sentinel Demo Request] ${fullName} (${country || "Global"}) — ${orgName || "Direct Briefing"}`;
+    const emailSubject = `[Sentinel Lead // ${leadSource}] ${fullName} (${country || "Global"}) — ${orgName || "Inquiry"}`;
 
     const htmlContent = `
       <!DOCTYPE html>
@@ -65,6 +66,10 @@ export async function POST(req: Request) {
             </div>
             <div class="content">
               <table class="meta-table">
+                <tr>
+                  <td class="label">Lead Source</td>
+                  <td class="value"><strong style="color: #60a5fa;">${leadSource}</strong></td>
+                </tr>
                 <tr>
                   <td class="label">Full Name</td>
                   <td class="value">${fullName}</td>

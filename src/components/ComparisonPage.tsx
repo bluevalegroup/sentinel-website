@@ -393,6 +393,7 @@ export function ComparisonPage({
         >
           <div
             className="demo-modal-content"
+            style={{ backgroundColor: '#ffffff', color: '#0a0a0a' }}
             onClick={(e) => e.stopPropagation()}
           >
             <button

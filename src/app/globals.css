@@ -1555,11 +1555,12 @@ body::after {
   }
 }
 
+.modal-container,
 .demo-modal-content {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-  color: #0a0a0a;
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 20px !important;
+  color: #0a0a0a !important;
   width: 100%;
   max-width: 580px;
   margin: auto;
@@ -1570,6 +1571,59 @@ body::after {
   padding: 2.5rem 2.25rem 2.5rem 2.25rem;
   animation: modalFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
+}
+
+.modal-container .modal-title,
+.demo-modal-content .modal-title {
+  color: #0a0a0a !important;
+}
+
+.modal-container .modal-instruction,
+.demo-modal-content .modal-instruction {
+  color: #64748b !important;
+}
+
+.modal-container .form-label,
+.demo-modal-content .form-label {
+  color: #475569 !important;
+}
+
+.modal-container .form-input,
+.modal-container .form-select,
+.modal-container .form-textarea,
+.modal-container .country-selector-btn,
+.demo-modal-content .form-input,
+.demo-modal-content .form-select,
+.demo-modal-content .form-textarea,
+.demo-modal-content .country-selector-btn {
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+.modal-container .form-input::placeholder,
+.modal-container .form-textarea::placeholder,
+.demo-modal-content .form-input::placeholder,
+.demo-modal-content .form-textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.modal-container .country-name-text,
+.demo-modal-content .country-name-text {
+  color: #0f172a !important;
+}
+
+.modal-container .form-submit-btn,
+.demo-modal-content .form-submit-btn {
+  background: #0a0a0a !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.modal-container .form-submit-btn:hover:not(:disabled),
+.demo-modal-content .form-submit-btn:hover:not(:disabled) {
+  background: #262626 !important;
+  color: #ffffff !important;
 }
 
 .modal-close-btn {
@@ -4112,6 +4166,123 @@ body::after {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+}
+
+.pilot-form-card .form-label {
+  color: #94a3b8 !important;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+}
+
+.pilot-form-card .form-input,
+.pilot-form-card .form-select,
+.pilot-form-card .form-textarea,
+.pilot-form-card .country-selector-btn {
+  width: 100%;
+  background: #12151c !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.88rem !important;
+  padding: 0.8rem 1rem !important;
+  box-shadow: none !important;
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pilot-form-card .form-input::placeholder,
+.pilot-form-card .form-textarea::placeholder,
+.pilot-form-card .country-placeholder {
+  color: #64748b !important;
+}
+
+.pilot-form-card .country-name-text {
+  color: #ffffff !important;
+}
+
+.pilot-form-card .country-chevron {
+  color: #94a3b8 !important;
+}
+
+.pilot-form-card .form-select {
+  background-color: #12151c !important;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2394a3b8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  color: #ffffff !important;
+}
+
+.pilot-form-card .form-select option {
+  background: #12151c !important;
+  color: #ffffff !important;
+}
+
+.pilot-form-card .form-input:focus,
+.pilot-form-card .form-select:focus,
+.pilot-form-card .form-textarea:focus,
+.pilot-form-card .country-selector-btn:focus,
+.pilot-form-card .country-selector-btn.active {
+  border-color: #3b82f6 !important;
+  background-color: #181d28 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.pilot-form-card .country-dropdown-popover {
+  background: #12151c !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7) !important;
+}
+
+.pilot-form-card .country-search-box {
+  background: #181d28 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.pilot-form-card .country-search-input {
+  color: #ffffff !important;
+}
+
+.pilot-form-card .country-search-input::placeholder {
+  color: #64748b !important;
+}
+
+.pilot-form-card .country-list-scroll {
+  background: #12151c !important;
+}
+
+.pilot-form-card .country-list-item {
+  color: #e2e8f0 !important;
+}
+
+.pilot-form-card .country-list-item:hover,
+.pilot-form-card .country-list-item.selected {
+  background: rgba(59, 130, 246, 0.18) !important;
+  color: #ffffff !important;
+}
+
+.pilot-form-card .country-item-name {
+  color: #ffffff !important;
+}
+
+.pilot-form-card .country-item-code {
+  color: #64748b !important;
+}
+
+.pilot-form-card .btn-primary {
+  background: #ffffff !important;
+  color: #0a0a0a !important;
+  font-weight: 600 !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15) !important;
+}
+
+.pilot-form-card .btn-primary:hover:not(:disabled) {
+  background: #e2e8f0 !important;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 960px) {

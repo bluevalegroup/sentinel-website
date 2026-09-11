@@ -307,23 +307,24 @@ export function SolutionPage({
       {isModalOpen && (
         <div className="modal-backdrop" onClick={closeModal}>
           <div
-            className="modal-container"
+            className="demo-modal-content"
+            style={{ backgroundColor: '#ffffff', color: '#0a0a0a' }}
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"
           >
             <button
               type="button"
-              className="modal-close-icon"
+              className="modal-close-btn"
               onClick={closeModal}
               aria-label="Close dialog"
             >
-              &times;
+              ✕
             </button>
 
             {!isSubmitted ? (
               <>
-                <div className="modal-header">
+                <div className="modal-header-centered">
                   <h2 className="modal-title">Request Technical Briefing</h2>
                   <p className="modal-instruction">
                     Provide your facility requirements below. Our engineers will prepare a technical dossier tailored to your operational environment.
