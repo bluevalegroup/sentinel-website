@@ -161,9 +161,14 @@ export function ComparisonPage({
               >
                 Schedule an On-Premise Evaluation
               </button>
-              <Link href="/#platform" className="btn btn-secondary btn-lg">
-                View Sentinel Live Demo
-              </Link>
+              <a
+                href="https://www.youtube.com/watch?v=3QPpbrHfTOQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary btn-lg"
+              >
+                Watch Live Demo
+              </a>
             </div>
           </div>
         </section>
@@ -216,11 +221,49 @@ export function ComparisonPage({
           </div>
         </section>
 
+        {/* VIDEO DEMONSTRATION SHOWCASE */}
+        <section className="compare-video-section">
+          <div className="container">
+            <div className="compare-video-info">
+              <span className="compare-video-tag mono">02 // LIVE DEMONSTRATION</span>
+              <h2 className="compare-section-title">See Sentinel Live in Action</h2>
+              <p className="compare-section-desc">
+                Watch how Sentinel delivers real-time multi-camera persistent tracking across live streams with sub-second alert dispatch.
+              </p>
+            </div>
+            <div className="demo-video-frame-container" style={{ maxWidth: '960px', margin: '0 auto' }}>
+              <div className="video-corner-reticle top-left" aria-hidden="true" />
+              <div className="video-corner-reticle top-right" aria-hidden="true" />
+              <div className="video-corner-reticle bottom-left" aria-hidden="true" />
+              <div className="video-corner-reticle bottom-right" aria-hidden="true" />
+              <div className="video-telemetry-bar">
+                <div className="video-telemetry-left">
+                  <span className="telemetry-tag">FEED // SENTINEL_PLATFORM_DEMO</span>
+                  <span className="telemetry-sep">|</span>
+                  <span className="telemetry-tag">VS {competitorName.toUpperCase()}</span>
+                </div>
+                <div className="video-telemetry-right">
+                  <span className="telemetry-status">1080P60 STREAM</span>
+                </div>
+              </div>
+              <div className="demo-video-responsive">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/3QPpbrHfTOQ?rel=0&modestbranding=1"
+                  title={`Sentinel Platform Demonstration vs ${competitorName}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="demo-video-player"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* KEY ARCHITECTURAL DIFFERENCES */}
         <section className="compare-diff-section">
           <div className="container">
             <div className="compare-section-header">
-              <span className="section-label mono">02 // ARCHITECTURAL ADVANTAGE</span>
+              <span className="section-label mono">03 // ARCHITECTURAL ADVANTAGE</span>
               <h2 className="compare-section-title">
                 Why Operators Are Migrating from {competitorName} to Sentinel
               </h2>
@@ -254,7 +297,7 @@ export function ComparisonPage({
         <section className="compare-faq-section">
           <div className="container">
             <div className="compare-section-header">
-              <span className="section-label mono">03 // FREQUENTLY ASKED QUESTIONS</span>
+              <span className="section-label mono">04 // FREQUENTLY ASKED QUESTIONS</span>
               <h2 className="compare-section-title">
                 Frequently Asked Questions: Sentinel vs {competitorName}
               </h2>
