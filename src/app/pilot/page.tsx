@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PilotPageClient } from './PilotPageClient';
+import { PilotPageClient } from '@/components/PilotPageClient';
 
 export const metadata: Metadata = {
   title: '48-Hour Sovereign Evaluation Pilot | Sentinel Vision AI',
