@@ -1530,10 +1530,12 @@ body::after {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   z-index: 9999;
-  display: grid;
-  place-items: center;
-  padding: 1.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @keyframes modalFadeIn {
@@ -1559,7 +1561,7 @@ body::after {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 2.5rem 2.25rem 2.25rem 2.25rem;
+  padding: 2.5rem 2.25rem 2.5rem 2.25rem;
   animation: modalFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
 }
@@ -3248,15 +3250,40 @@ body::after {
     padding: 2.5rem 1.5rem;
   }
 
-  .form-grid {
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
+  .modal-backdrop {
+    padding: 2.5rem 1rem 5.5rem 1rem;
+    align-items: flex-start;
   }
 
   .demo-modal-content {
-    border-radius: 16px;
-    padding: 2rem 1.25rem 1.5rem 1.25rem;
-    max-height: calc(100vh - 2rem);
+    border-radius: 18px;
+    padding: 2rem 1.25rem 2.25rem 1.25rem;
+    max-height: none;
+    margin: auto 0;
+    overflow: visible;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea,
+  .country-selector-btn {
+    font-size: 16px;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .form-textarea {
+    min-height: 70px;
+  }
+
+  .form-submit-btn {
+    margin-top: 0.35rem;
+    min-height: 48px;
   }
 
   .modal-body {
