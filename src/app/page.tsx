@@ -223,11 +223,6 @@ export default function SentinelHome() {
             <div className="architecture-card">
               {/* Left Column: Dossier Header, Description & Stacks */}
               <div className="architecture-main">
-                <div className="architecture-badge">
-                  <span className="architecture-badge-dot" />
-                  <span className="architecture-badge-text">TECHNICAL DOSSIER</span>
-                </div>
-
                 <h2 className="architecture-title">
                   Industrial Grade Architecture
                 </h2>
