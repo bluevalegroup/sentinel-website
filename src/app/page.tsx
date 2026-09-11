@@ -127,23 +127,18 @@ export default function SentinelHome() {
           <nav aria-label="Main Navigation">
             <ul className="nav-links">
               <li>
-                <a href="#platform" className="nav-link">
-                  Platform
-                </a>
-              </li>
-              <li>
                 <a href="#capabilities" className="nav-link">
                   Capabilities
                 </a>
               </li>
               <li>
-                <a href="#experience" className="nav-link">
-                  Experience
+                <a href="#environments" className="nav-link">
+                  Environments
                 </a>
               </li>
               <li>
-                <a href="#environments" className="nav-link">
-                  Environments
+                <a href="#deployment" className="nav-link">
+                  Deployment
                 </a>
               </li>
             </ul>
@@ -185,32 +180,12 @@ export default function SentinelHome() {
           <ul className="mobile-nav-list">
             <li>
               <a 
-                href="#platform" 
-                className="mobile-nav-link"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <span className="mobile-link-num">01</span>
-                <span className="mobile-link-text">Platform</span>
-              </a>
-            </li>
-            <li>
-              <a 
                 href="#capabilities" 
                 className="mobile-nav-link"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="mobile-link-num">02</span>
+                <span className="mobile-link-num">01</span>
                 <span className="mobile-link-text">Capabilities</span>
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#experience" 
-                className="mobile-nav-link"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <span className="mobile-link-num">03</span>
-                <span className="mobile-link-text">Experience</span>
               </a>
             </li>
             <li>
@@ -219,8 +194,18 @@ export default function SentinelHome() {
                 className="mobile-nav-link"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="mobile-link-num">04</span>
+                <span className="mobile-link-num">02</span>
                 <span className="mobile-link-text">Environments</span>
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#deployment" 
+                className="mobile-nav-link"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="mobile-link-num">03</span>
+                <span className="mobile-link-text">Deployment</span>
               </a>
             </li>
           </ul>
@@ -267,7 +252,7 @@ export default function SentinelHome() {
                 >
                   Request a Demo <span className="btn-arrow">→</span>
                 </button>
-                <a href="#pillars" className="btn btn-secondary">
+                <a href="#capabilities" className="btn btn-secondary">
                   Explore Capabilities <span className="btn-arrow">↓</span>
                 </a>
               </div>
@@ -276,12 +261,12 @@ export default function SentinelHome() {
         </section>
 
         {/* ===================================================================
-             CORE CAPABILITIES / PILLARS SECTION
+             CORE CAPABILITIES / PILLARS SECTION (Built for the mission)
              3 Clean Minimalist Architectural Cards on Light Cream Canvas, 100% Sora
              =================================================================== */}
         <section
           className="pillars-section"
-          id="pillars"
+          id="capabilities"
           aria-label="Core Capabilities"
         >
           <div className="container">
@@ -310,12 +295,12 @@ export default function SentinelHome() {
         </section>
 
         {/* ===================================================================
-             INDUSTRIAL GRADE ARCHITECTURE SECTION (TECHNICAL DOSSIER)
+             DEMANDING ENVIRONMENTS SECTION (Deployment Specs)
              =================================================================== */}
         <section
           className="architecture-section"
-          id="architecture"
-          aria-label="Industrial Grade Architecture"
+          id="deployment"
+          aria-label="Built for Demanding Environments"
         >
           <div className="container">
             <div className="architecture-card">
