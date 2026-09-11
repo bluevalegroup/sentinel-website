@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { CountrySelector } from '@/components/CountrySelector';
 import {
   WireframePlanes,
   WireframeContour,
@@ -105,6 +106,18 @@ export default function SentinelHome() {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [activeEnvIndex, setActiveEnvIndex] = useState<number>(0);
 
+  // Form submission state
+  const [formData, setFormData] = useState({
+    fullName: '',
+    workEmail: '',
+    orgName: '',
+    country: '',
+    envType: '',
+    cameraCount: '',
+    requirements: '',
+  });
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   // Typewriter animation state for hero natural language search
   const [currentText, setCurrentText] = useState<string>('');
   const [commandIndex, setCommandIndex] = useState<number>(0);
@@ -138,18 +151,39 @@ export default function SentinelHome() {
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, commandIndex]);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setSubmitError(null);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || data.error) {
+        throw new Error(data.error || 'Failed to transmit demo briefing request.');
+      }
+
       setIsSubmitted(true);
-    }, 1200);
+    } catch (err: unknown) {
+      console.error('Demo briefing submission failed:', err);
+      setSubmitError(
+        err instanceof Error ? err.message : 'Transmission error. Please try again.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setIsSubmitted(false);
+    setSubmitError(null);
   };
 
   return (
@@ -213,11 +247,6 @@ export default function SentinelHome() {
         aria-hidden={!isMobileMenuOpen}
       >
         <div className="mobile-nav-content">
-          <div className="mobile-nav-meta">
-            <span className="tactical-tag">SENTINEL NAVIGATION</span>
-            <span className="mono mobile-nav-badge">ONLINE</span>
-          </div>
-
           <ul className="mobile-nav-list">
             <li>
               <a 
@@ -225,7 +254,6 @@ export default function SentinelHome() {
                 className="mobile-nav-link"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="mobile-link-num">01</span>
                 <span className="mobile-link-text">Capabilities</span>
               </a>
             </li>
@@ -235,7 +263,6 @@ export default function SentinelHome() {
                 className="mobile-nav-link"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="mobile-link-num">02</span>
                 <span className="mobile-link-text">Deployment</span>
               </a>
             </li>
@@ -245,29 +272,10 @@ export default function SentinelHome() {
                 className="mobile-nav-link"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="mobile-link-num">03</span>
                 <span className="mobile-link-text">Environments</span>
               </a>
             </li>
           </ul>
-
-          <div className="mobile-nav-footer">
-            <button
-              className="btn btn-primary mobile-cta-btn"
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsModalOpen(true);
-              }}
-            >
-              Request a Demo
-            </button>
-
-            <div className="mobile-telemetry-meta mono">
-              <span>LATENCY: 12ms</span>
-              <span>//</span>
-              <span>SOVEREIGN ARCHITECTURE</span>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -280,12 +288,11 @@ export default function SentinelHome() {
           <div className="container">
             <div className="hero-content">
               <h1 className="hero-title">
-                Your cameras see everything.
-                <br />
-                Sentinel finds what matters.
+                <span className="hero-line">Your cameras see everything.</span>
+                <span className="hero-line">Sentinel finds what matters.</span>
               </h1>
               <p className="hero-description">
-                Search, understand and investigate video across your camera network
+                Search, understand and investigate video across your camera network{' '}
                 <br className="desc-br" />
                 using natural language.
               </p>
@@ -665,106 +672,190 @@ export default function SentinelHome() {
             className="demo-modal-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="modal-header">
-              <span className="modal-title" id="modalTitle">
-                Sentinel Briefing // Request a Demo
-              </span>
-              <button
-                className="modal-close-btn"
-                onClick={closeModal}
-                aria-label="Close dialog"
-              >
-                ✕
-              </button>
-            </div>
+            <button
+              className="modal-close-btn"
+              onClick={closeModal}
+              aria-label="Close dialog"
+            >
+              ✕
+            </button>
 
-            <div className="modal-body">
-              {!isSubmitted ? (
-                <>
+            {!isSubmitted ? (
+              <>
+                <div className="modal-header-centered">
+                  <h2 className="modal-title" id="modalTitle">
+                    Contact Sentinel
+                  </h2>
                   <p className="modal-instruction">
-                    Tell us about your security environment, camera infrastructure or video intelligence requirements. Our technical team will get back to you to arrange a demonstration.
+                    Reach out to discuss your security environment and see Sentinel in action.
                   </p>
+                </div>
 
-                  <form onSubmit={handleFormSubmit}>
-                    <div className="form-group">
-                      <label htmlFor="fullName" className="form-label">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="fullName"
-                        className="form-input"
-                        placeholder="Operator or Director Name"
-                        required
-                      />
-                    </div>
+                <div className="modal-body">
+                  <form onSubmit={handleFormSubmit} className="demo-form">
+                    {submitError && (
+                      <div
+                        style={{
+                          background: '#fef2f2',
+                          border: '1px solid #fecaca',
+                          color: '#b91c1c',
+                          padding: '0.75rem 1rem',
+                          borderRadius: '10px',
+                          fontSize: '0.85rem',
+                          marginBottom: '1.25rem',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.5rem',
+                        }}
+                      >
+                        <span style={{ fontSize: '1rem' }}>⚠</span>
+                        <span>{submitError}</span>
+                      </div>
+                    )}
 
-                    <div className="form-group">
-                      <label htmlFor="workEmail" className="form-label">
-                        Work / Agency Email *
-                      </label>
-                      <input
-                        type="email"
-                        id="workEmail"
-                        className="form-input"
-                        placeholder="name@organization.gov or .com"
-                        required
-                      />
-                    </div>
+                    <div className="form-grid">
+                      <div className="form-group">
+                        <label htmlFor="fullName" className="form-label">
+                          FULL NAME <span className="required-asterisk">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          id="fullName"
+                          className="form-input"
+                          placeholder="Your name"
+                          required
+                          value={formData.fullName}
+                          onChange={(e) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              fullName: e.target.value,
+                            }))
+                          }
+                        />
+                      </div>
 
-                    <div className="form-group">
-                      <label htmlFor="orgName" className="form-label">
-                        Organization / Agency *
-                      </label>
-                      <input
-                        type="text"
-                        id="orgName"
-                        className="form-input"
-                        placeholder="e.g. Defence Agency, Port Authority, Facility Ops"
-                        required
-                      />
-                    </div>
+                      <div className="form-group">
+                        <label htmlFor="workEmail" className="form-label">
+                          EMAIL <span className="required-asterisk">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          id="workEmail"
+                          className="form-input"
+                          placeholder="name@company.com"
+                          required
+                          value={formData.workEmail}
+                          onChange={(e) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              workEmail: e.target.value,
+                            }))
+                          }
+                        />
+                      </div>
 
-                    <div className="form-group">
-                      <label htmlFor="cameraCount" className="form-label">
-                        Camera Infrastructure Scale
-                      </label>
-                      <select id="cameraCount" className="form-select">
-                        <option value="50-200">50 - 200 Camera Streams</option>
-                        <option value="200-1000">200 - 1,000 Camera Streams</option>
-                        <option value="1000+">
-                          1,000+ Enterprise / Multi-Site Streams
-                        </option>
-                        <option value="eval">Evaluating New Infrastructure Setup</option>
-                      </select>
-                    </div>
+                      <div className="form-group">
+                        <label htmlFor="orgName" className="form-label">
+                          COMPANY <span className="required-asterisk">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          id="orgName"
+                          className="form-input"
+                          placeholder="Company name"
+                          required
+                          value={formData.orgName}
+                          onChange={(e) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              orgName: e.target.value,
+                            }))
+                          }
+                        />
+                      </div>
 
-                    <div className="form-group">
-                      <label htmlFor="envType" className="form-label">
-                        Primary Environment
-                      </label>
-                      <select id="envType" className="form-select">
-                        <option value="defence">Defence / Military Installation</option>
-                        <option value="infrastructure">
-                          Critical Infrastructure / Energy
-                        </option>
-                        <option value="industrial">Industrial Facilities &amp; Yards</option>
-                        <option value="government">
-                          Government / Municipal Facilities
-                        </option>
-                        <option value="commercial">Enterprise / Commercial Security</option>
-                      </select>
-                    </div>
+                      <div className="form-group">
+                        <label htmlFor="country" className="form-label">
+                          COUNTRY <span className="required-asterisk">*</span>
+                        </label>
+                        <CountrySelector
+                          value={formData.country}
+                          onChange={(c) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              country: c,
+                            }))
+                          }
+                          required
+                        />
+                      </div>
 
-                    <div className="form-group">
-                      <label htmlFor="requirements" className="form-label">
-                        Intelligence Requirements / Notes
-                      </label>
-                      <textarea
-                        id="requirements"
-                        className="form-textarea"
-                        placeholder="Describe your current challenge (e.g. incident search times, anomaly monitoring, perimeter access)..."
-                      ></textarea>
+                      <div className="form-group">
+                        <label htmlFor="envType" className="form-label">
+                          PRIMARY ENVIRONMENT
+                        </label>
+                        <select
+                          id="envType"
+                          className="form-select"
+                          value={formData.envType}
+                          onChange={(e) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              envType: e.target.value,
+                            }))
+                          }
+                        >
+                          <option value="">Select environment</option>
+                          <option value="Defence / Military Installation">Defence / Military Installation</option>
+                          <option value="Critical Infrastructure / Energy">Critical Infrastructure / Energy</option>
+                          <option value="Industrial Facilities / Yards">Industrial Facilities / Yards</option>
+                          <option value="Government / Public Facilities">Government / Public Facilities</option>
+                          <option value="Enterprise / Commercial Security">Enterprise / Commercial Security</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="cameraCount" className="form-label">
+                          CAMERA INFRASTRUCTURE SCALE
+                        </label>
+                        <select
+                          id="cameraCount"
+                          className="form-select"
+                          value={formData.cameraCount}
+                          onChange={(e) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              cameraCount: e.target.value,
+                            }))
+                          }
+                        >
+                          <option value="">Select camera scale</option>
+                          <option value="50–200 Camera Streams">50–200 Camera Streams</option>
+                          <option value="200–1,000 Camera Streams">200–1,000 Camera Streams</option>
+                          <option value="1,000+ Camera Streams">1,000+ Camera Streams</option>
+                          <option value="Evaluating New Infrastructure">Evaluating New Infrastructure</option>
+                        </select>
+                      </div>
+
+                      <div className="form-group form-group-full">
+                        <label htmlFor="requirements" className="form-label">
+                          MESSAGE
+                        </label>
+                        <textarea
+                          id="requirements"
+                          className="form-textarea"
+                          rows={3}
+                          placeholder="Tell us about your security environment and what you'd like to see in a demonstration."
+                          value={formData.requirements}
+                          onChange={(e) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              requirements: e.target.value,
+                            }))
+                          }
+                        ></textarea>
+                      </div>
                     </div>
 
                     <button
@@ -773,31 +864,32 @@ export default function SentinelHome() {
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
-                        'TRANSMITTING BRIEFING REQUEST...'
+                        'SENDING MESSAGE...'
                       ) : (
-                        'Submit Demo Request'
+                        'SEND MESSAGE'
                       )}
                     </button>
                   </form>
-                </>
-              ) : (
-                <div className="form-success-state">
-                  <div className="success-icon">✓</div>
-                  <h3 className="success-title">Request Transmitted</h3>
-                  <p className="success-desc">
-                    Your inquiry has been routed to the Bluevale Defence systems team. We will review your infrastructure requirements and contact you within 24 hours.
-                  </p>
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    onClick={closeModal}
-                    style={{ marginTop: '1.5rem' }}
-                  >
-                    Close Window
-                  </button>
                 </div>
-              )}
-            </div>
+              </>
+            ) : (
+              <div className="form-success-state">
+                <h2 className="modal-title" style={{ marginBottom: '0.85rem' }}>
+                  Message Received
+                </h2>
+                <p className="modal-instruction" style={{ maxWidth: '440px', lineHeight: 1.6 }}>
+                  Thank you for reaching out. We’ve received your enquiry and our team will review it and get back to you shortly.
+                </p>
+                <button
+                  type="button"
+                  className="modal-btn-close"
+                  onClick={closeModal}
+                  style={{ marginTop: '2rem' }}
+                >
+                  Close
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}
