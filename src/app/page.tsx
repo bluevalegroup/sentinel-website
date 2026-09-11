@@ -248,6 +248,43 @@ export default function SentinelHome() {
       {/* MAIN CONTENT AREA */}
       <main id="mainContent" style={{ flex: 1 }}>
         {/* ===================================================================
+             01 — HERO SECTION (Platform Dashboard Background)
+             =================================================================== */}
+        <section className="hero-section" id="platform" aria-label="Platform Hero">
+          <div className="container">
+            <div className="hero-meta">
+              <span className="tactical-tag">
+                SOVEREIGN DEFENCE &amp; CRITICAL INFRASTRUCTURE
+              </span>
+              <span className="hero-coords">
+                37°46&apos;30.2&quot;N 122°25&apos;08.4&quot;W // LATENCY: 12ms // VISION-LANGUAGE ENGINE
+              </span>
+            </div>
+
+            <div className="hero-content">
+              <h1 className="hero-title">
+                Understanding context, not just movement.
+              </h1>
+              <p className="hero-description">
+                Sentinel uses sovereign vision-language models to transform passive camera networks into active operational intelligence.
+              </p>
+              <div className="hero-actions">
+                <button
+                  className="btn btn-primary"
+                  onClick={() => setIsModalOpen(true)}
+                  id="heroDemoBtn"
+                >
+                  Request a Demo <span className="btn-arrow">→</span>
+                </button>
+                <a href="#pillars" className="btn btn-secondary">
+                  Explore Capabilities <span className="btn-arrow">↓</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===================================================================
              CORE CAPABILITIES / PILLARS SECTION
              3 Clean Minimalist Architectural Cards on Light Cream Canvas, 100% Sora
              =================================================================== */}
