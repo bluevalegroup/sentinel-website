@@ -2052,6 +2052,302 @@ body::after {
 }
 
 /* ==========================================================================
+   INDUSTRIAL GRADE ARCHITECTURE SECTION (TECHNICAL DOSSIER)
+   Modular GPU-Accelerated Stack, High-End Defense Dossier, Sora Typography
+   Palette: Strict Cream (#f5f4ef) and Black (#000000, #080808) Only
+   ========================================================================== */
+
+.architecture-section {
+  background-color: #000000;
+  padding: 3.5rem 0;
+  position: relative;
+  width: 100%;
+}
+
+.architecture-card {
+  background-color: #080808;
+  border: 1px solid rgba(245, 244, 239, 0.1);
+  border-radius: 18px;
+  padding: 2.65rem 3rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.88fr;
+  gap: 2.75rem;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7);
+}
+
+.architecture-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245, 244, 239, 0.3), transparent);
+}
+
+.architecture-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.architecture-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.9rem;
+  padding: 0.22rem 0.65rem;
+  background: rgba(245, 244, 239, 0.04);
+  border: 1px solid rgba(245, 244, 239, 0.12);
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.architecture-badge-dot {
+  width: 3.5px;
+  height: 3.5px;
+  border-radius: 50%;
+  background-color: #f5f4ef;
+  display: inline-block;
+}
+
+.architecture-badge-text {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #f5f4ef;
+  text-transform: uppercase;
+}
+
+.architecture-title {
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(1.5rem, 2.2vw, 2.15rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #f5f4ef;
+  margin-bottom: 0.85rem;
+  display: block;
+}
+
+.architecture-desc {
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(0.82rem, 0.88vw, 0.88rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: #8c8a82;
+  max-width: 460px;
+  margin-bottom: 1.6rem;
+}
+
+/* Architecture Two-Column Stack Pods (Unboxed) */
+.architecture-stacks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.25rem;
+}
+
+.architecture-stack-col {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.architecture-stack-heading {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.stack-heading-indicator {
+  width: 2.5px;
+  height: 8px;
+  border-radius: 1px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.architecture-stack-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.architecture-stack-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #e2e0d8;
+  line-height: 1.45;
+}
+
+.stack-bullet {
+  width: 3.5px;
+  height: 3.5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+  display: inline-block;
+}
+
+/* Stack Headings, Indicators & Bullets: #8C8A82 */
+.architecture-stack-col.stack-ai .architecture-stack-heading,
+.architecture-stack-col.stack-security .architecture-stack-heading {
+  color: #8C8A82;
+}
+
+.architecture-stack-col.stack-ai .stack-heading-indicator,
+.architecture-stack-col.stack-security .stack-heading-indicator {
+  background-color: #8C8A82;
+}
+
+.architecture-stack-col.stack-ai .stack-bullet,
+.architecture-stack-col.stack-security .stack-bullet {
+  background-color: #8C8A82;
+}
+
+/* Right Column: Internal Deployment Specs Dossier Card */
+.architecture-dossier-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.architecture-dossier-card {
+  width: 100%;
+  max-width: 410px;
+  background: #000000;
+  border: 1px solid rgba(245, 244, 239, 0.12);
+  border-radius: 16px;
+  padding: 1.85rem 2.15rem;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(245, 244, 239, 0.08);
+  position: relative;
+}
+
+.dossier-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.15rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(245, 244, 239, 0.08);
+}
+
+.dossier-icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #f5f4ef;
+}
+
+.dossier-card-title {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f5f4ef;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.dossier-specs-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.dossier-spec-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 0.72rem 0;
+  border-bottom: 1px solid rgba(245, 244, 239, 0.08);
+  transition: padding-left 0.2s ease, padding-right 0.2s ease;
+}
+
+.dossier-spec-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.dossier-spec-label {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  color: #8c8a82;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.dossier-spec-value {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f5f4ef;
+  text-align: right;
+}
+
+/* Architecture Responsive Breakpoints */
+@media (max-width: 1080px) {
+  .architecture-card {
+    padding: 2rem 1.75rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .architecture-dossier-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .architecture-section {
+    padding: 2.75rem 0;
+  }
+
+  .architecture-card {
+    padding: 1.5rem 1.15rem;
+    border-radius: 14px;
+    gap: 1.75rem;
+  }
+
+  .architecture-title {
+    font-size: 1.5rem;
+  }
+
+  .architecture-stacks-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .architecture-dossier-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .dossier-spec-row {
+    padding: 0.5rem 0;
+  }
+
+  .dossier-spec-value {
+    font-size: 0.78rem;
+  }
+}
+
+/* ==========================================================================
    BUILT FOR REAL-WORLD ENVIRONMENTS SECTION
    Light Cream Architectural Canvas, High-Contrast Defense Grid, 100% Sora
    ========================================================================== */

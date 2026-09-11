@@ -211,6 +211,134 @@ export default function SentinelHome() {
 
       {/* MAIN CONTENT AREA */}
       <main id="mainContent" style={{ flex: 1 }}>
+        {/* ===================================================================
+             INDUSTRIAL GRADE ARCHITECTURE SECTION (TECHNICAL DOSSIER)
+             =================================================================== */}
+        <section
+          className="architecture-section"
+          id="architecture"
+          aria-label="Industrial Grade Architecture"
+        >
+          <div className="container">
+            <div className="architecture-card">
+              {/* Left Column: Dossier Header, Description & Stacks */}
+              <div className="architecture-main">
+                <div className="architecture-badge">
+                  <span className="architecture-badge-dot" />
+                  <span className="architecture-badge-text">TECHNICAL DOSSIER</span>
+                </div>
+
+                <h2 className="architecture-title">
+                  Industrial Grade Architecture
+                </h2>
+
+                <p className="architecture-desc">
+                  Sentinel is built on a modular, GPU-accelerated stack engineered for the most demanding operational environments, from tactical outposts to national grids.
+                </p>
+
+                <div className="architecture-stacks-grid">
+                  {/* AI Model Stack */}
+                  <div className="architecture-stack-col stack-ai">
+                    <h3 className="architecture-stack-heading">
+                      <span className="stack-heading-indicator" />
+                      <span>AI MODEL STACK</span>
+                    </h3>
+                    <ul className="architecture-stack-list">
+                      <li>
+                        <span className="stack-bullet" />
+                        <span>Custom Vision-Language Model Core</span>
+                      </li>
+                      <li>
+                        <span className="stack-bullet" />
+                        <span>Temporal Action Detection</span>
+                      </li>
+                      <li>
+                        <span className="stack-bullet" />
+                        <span>FAISS Vector Indexing</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Security Protocol */}
+                  <div className="architecture-stack-col stack-security">
+                    <h3 className="architecture-stack-heading">
+                      <span className="stack-heading-indicator" />
+                      <span>SECURITY PROTOCOL</span>
+                    </h3>
+                    <ul className="architecture-stack-list">
+                      <li>
+                        <span className="stack-bullet" />
+                        <span>TLS 1.3 End-to-End Encryption</span>
+                      </li>
+                      <li>
+                        <span className="stack-bullet" />
+                        <span>AES-256 Data at Rest</span>
+                      </li>
+                      <li>
+                        <span className="stack-bullet" />
+                        <span>Hardware Root of Trust</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Internal Deployment Specs Dossier Card */}
+              <div className="architecture-dossier-wrapper">
+                <div className="architecture-dossier-card">
+                  <div className="dossier-card-header">
+                    <div className="dossier-icon-box" aria-hidden="true">
+                      <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <rect x="2" y="4" width="20" height="6" rx="2" />
+                        <rect x="2" y="14" width="20" height="6" rx="2" />
+                        <line x1="6" y1="7" x2="6.01" y2="7" />
+                        <line x1="6" y1="17" x2="6.01" y2="17" />
+                      </svg>
+                    </div>
+                    <h3 className="dossier-card-title">Deployment Specs</h3>
+                  </div>
+
+                  <div className="dossier-specs-list">
+                    <div className="dossier-spec-row">
+                      <span className="dossier-spec-label">INFERENCE</span>
+                      <span className="dossier-spec-value">Edge / Private Cloud</span>
+                    </div>
+
+                    <div className="dossier-spec-row">
+                      <span className="dossier-spec-label">NETWORK</span>
+                      <span className="dossier-spec-value">Air-Gapped Ready</span>
+                    </div>
+
+                    <div className="dossier-spec-row">
+                      <span className="dossier-spec-label">LATENCY</span>
+                      <span className="dossier-spec-value">&lt; 50ms (Core Eng)</span>
+                    </div>
+
+                    <div className="dossier-spec-row">
+                      <span className="dossier-spec-label">ENCRYPTION</span>
+                      <span className="dossier-spec-value">FIPS 140-2 Compliant</span>
+                    </div>
+
+                    <div className="dossier-spec-row">
+                      <span className="dossier-spec-label">SCALABILITY</span>
+                      <span className="dossier-spec-value">Multi-Site, Multi-Region</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* BUILT FOR REAL-WORLD ENVIRONMENTS SECTION */}
         <section
           className="environments-section"
