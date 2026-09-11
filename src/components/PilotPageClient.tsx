@@ -203,10 +203,21 @@ export function PilotPageClient() {
 
             {/* APPLICATION FORM INLINE */}
             <div className="pilot-form-col" id="apply">
-              <div className="pilot-form-card">
+              <div
+                className="pilot-form-card"
+                style={{
+                  backgroundColor: '#ffffff',
+                  color: '#0a0a0a',
+                  borderRadius: '20px',
+                  boxShadow: '0 24px 60px -12px rgba(0, 0, 0, 0.25), 0 8px 24px -4px rgba(0, 0, 0, 0.1)',
+                  border: '1px solid rgba(0, 0, 0, 0.08)',
+                }}
+              >
                 <div className="form-card-header">
-                  <h3 className="form-card-title">Apply for a 30-Day Evaluation</h3>
-                  <p className="form-card-desc">
+                  <h3 className="form-card-title" style={{ color: '#0a0a0a' }}>
+                    Apply for a 30-Day Evaluation
+                  </h3>
+                  <p className="form-card-desc" style={{ color: '#64748b' }}>
                     Tell us about your security site. Our engineering team will review your requirements and coordinate your evaluation setup.
                   </p>
                 </div>
