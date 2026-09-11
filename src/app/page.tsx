@@ -560,7 +560,7 @@ export default function SentinelHome() {
                 </h2>
 
                 <p className="cta-banner-subtext">
-                  Tell us about your security environment, camera infrastructure or video intelligence requirements. Our team will get back to you to arrange a conversation.
+                  Tell us about your security environment, camera infrastructure or video intelligence requirements. We’ll get back to you to arrange a conversation.
                 </p>
 
                 <div className="cta-banner-action">
@@ -569,7 +569,7 @@ export default function SentinelHome() {
                     onClick={() => setIsModalOpen(true)}
                     id="ctaContactBtn"
                   >
-                    Request a Demo
+                    Request a Demo <span className="btn-arrow">→</span>
                   </button>
                 </div>
               </div>
