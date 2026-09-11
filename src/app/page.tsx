@@ -1,6 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
+import {
+  WireframePlanes,
+  WireframeContour,
+  WireframeCapsule,
+} from '@/components/WireframeGraphics';
 
 interface EnvironmentItem {
   id: string;
@@ -51,6 +56,37 @@ const environmentsData: EnvironmentItem[] = [
     description:
       'Continuous monitoring across large, high-throughput environments with complex movement patterns.',
     image: '/assets/env-logistics.jpg',
+  },
+];
+
+interface PillarItem {
+  id: string;
+  title: string;
+  description: string;
+  graphic: 'planes' | 'contour' | 'capsule';
+}
+
+const pillarsData: PillarItem[] = [
+  {
+    id: 'awareness',
+    title: 'Active Awareness',
+    description:
+      'Real-time multi-object detection and behavioral analysis across 100+ object classes with zero latency.',
+    graphic: 'planes',
+  },
+  {
+    id: 'search',
+    title: 'Semantic Search',
+    description:
+      'Describe any person, vehicle, or event in plain English and locate it across your entire camera network instantly.',
+    graphic: 'contour',
+  },
+  {
+    id: 'shield',
+    title: 'Sovereign Shield',
+    description:
+      '100% air-gapped deployment with no external telemetry, ensuring total data privacy and security.',
+    graphic: 'capsule',
   },
 ];
 
@@ -211,6 +247,33 @@ export default function SentinelHome() {
 
       {/* MAIN CONTENT AREA */}
       <main id="mainContent" style={{ flex: 1 }}>
+        {/* ===================================================================
+             CORE CAPABILITIES / PILLARS SECTION
+             3 Clean Minimalist Architectural Cards on Light Cream Canvas, 100% Sora
+             =================================================================== */}
+        <section
+          className="pillars-section"
+          id="pillars"
+          aria-label="Core Capabilities"
+        >
+          <div className="container">
+            <div className="pillars-grid">
+              {pillarsData.map((pillar) => (
+                <div className="pillar-card" key={pillar.id}>
+                  <div className="pillar-graphic-box" aria-hidden="true">
+                    {pillar.graphic === 'planes' && <WireframePlanes />}
+                    {pillar.graphic === 'contour' && <WireframeContour />}
+                    {pillar.graphic === 'capsule' && <WireframeCapsule />}
+                  </div>
+
+                  <h3 className="pillar-title">{pillar.title}</h3>
+                  <p className="pillar-desc">{pillar.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ===================================================================
              INDUSTRIAL GRADE ARCHITECTURE SECTION (TECHNICAL DOSSIER)
              =================================================================== */}
