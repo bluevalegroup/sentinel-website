@@ -307,10 +307,16 @@ body::after {
 }
 
 .header-demo-btn {
-  padding: 0.65rem 1.35rem;
+  height: 38px;
+  padding: 0 1.35rem;
   font-size: 0.82rem;
   letter-spacing: 0.01em;
   text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .btn-arrow-svg {
@@ -2120,6 +2126,8 @@ body::after {
   border: 1px solid var(--border-muted);
   width: 38px;
   height: 38px;
+  border-radius: 4px;
+  box-sizing: border-box;
   padding: 0;
   cursor: pointer;
   align-items: center;
@@ -2290,16 +2298,29 @@ body::after {
   }
 
   .header-actions {
-    gap: 0.65rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .header-demo-btn {
-    padding: 0.55rem 1.15rem;
-    font-size: 0.75rem;
+    height: 36px;
+    padding: 0 1rem;
+    font-size: 0.78rem;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
   }
 
   .mobile-menu-toggle {
     display: flex;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    flex-shrink: 0;
   }
 
   .problem-grid {
