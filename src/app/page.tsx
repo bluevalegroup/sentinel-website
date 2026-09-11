@@ -211,6 +211,7 @@ export default function SentinelHome() {
   const [activeScenario, setActiveScenario] = useState<string>('vehicles');
   const [liveTime, setLiveTime] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
@@ -223,6 +224,14 @@ export default function SentinelHome() {
     const timer = setInterval(updateTime, 1000);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isMobileMenuOpen]);
 
   const currentScenario = SCENARIOS[activeScenario] || SCENARIOS.vehicles;
 
@@ -251,7 +260,6 @@ export default function SentinelHome() {
               alt="Sentinel"
               className="brand-logo-img"
             />
-            <span className="brand-badge">By Bluevale Defence</span>
           </a>
 
           <nav aria-label="Main Navigation">
@@ -276,29 +284,108 @@ export default function SentinelHome() {
                   Environments
                 </a>
               </li>
-              <li>
-                <a href="#bluevale" className="nav-link">
-                  Bluevale Defence
-                </a>
-              </li>
             </ul>
           </nav>
 
           <div className="header-actions">
-            <div className="system-status-indicator" title="System Operational">
-              <span className="pulse-dot"></span>
-              <span>SYSTEM ONLINE // FEED ACTIVE</span>
-            </div>
             <button
-              className="btn btn-primary btn-sm"
+              className="btn btn-primary btn-sm header-demo-btn"
               onClick={() => setIsModalOpen(true)}
               id="headerDemoBtn"
             >
-              Request Demo <span className="btn-arrow">→</span>
+              Get Demo <span className="btn-arrow">→</span>
+            </button>
+
+            <button
+              className={`mobile-menu-toggle ${isMobileMenuOpen ? 'open' : ''}`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle navigation menu"
+              aria-expanded={isMobileMenuOpen}
+            >
+              <span className="toggle-bar"></span>
+              <span className="toggle-bar"></span>
             </button>
           </div>
         </div>
       </header>
+
+      {/* MOBILE NAVIGATION DRAWER (outside header to avoid backdrop-filter stacking context) */}
+      <div 
+        className={`mobile-nav-drawer ${isMobileMenuOpen ? 'open' : ''}`} 
+        aria-hidden={!isMobileMenuOpen}
+      >
+        <div className="mobile-nav-content">
+          <div className="mobile-nav-meta">
+            <span className="tactical-tag">SENTINEL NAVIGATION</span>
+            <span className="mono mobile-nav-badge">ONLINE</span>
+          </div>
+
+          <ul className="mobile-nav-list">
+            <li>
+              <a 
+                href="#platform" 
+                className="mobile-nav-link"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="mobile-link-num">01</span>
+                <span className="mobile-link-text">Platform</span>
+                <span className="mobile-link-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#capabilities" 
+                className="mobile-nav-link"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="mobile-link-num">02</span>
+                <span className="mobile-link-text">Capabilities</span>
+                <span className="mobile-link-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#experience" 
+                className="mobile-nav-link"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="mobile-link-num">03</span>
+                <span className="mobile-link-text">Experience</span>
+                <span className="mobile-link-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#environments" 
+                className="mobile-nav-link"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="mobile-link-num">04</span>
+                <span className="mobile-link-text">Environments</span>
+                <span className="mobile-link-arrow">→</span>
+              </a>
+            </li>
+          </ul>
+
+          <div className="mobile-nav-footer">
+            <button
+              className="btn btn-primary mobile-cta-btn"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsModalOpen(true);
+              }}
+            >
+              Request a Demo <span className="btn-arrow">→</span>
+            </button>
+
+            <div className="mobile-telemetry-meta mono">
+              <span>LATENCY: 12ms</span>
+              <span>//</span>
+              <span>SOVEREIGN ARCHITECTURE</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <main id="mainContent">
         {/* ===================================================================

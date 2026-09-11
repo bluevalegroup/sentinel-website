@@ -152,12 +152,18 @@ body::after {
 }
 
 .brand-logo-img {
-  height: 26px;
+  height: 19px;
   width: auto;
-  max-width: 220px;
+  max-width: 155px;
   object-fit: contain;
   filter: brightness(0) invert(1);
+  opacity: 0.92;
   display: block;
+  transition: opacity var(--transition-fast);
+}
+
+.brand-wrapper:hover .brand-logo-img {
+  opacity: 1;
 }
 
 .brand-logo-icon {
@@ -1766,10 +1772,195 @@ body::after {
   }
 }
 
+/* ==========================================================================
+   MOBILE MENU TOGGLE & DRAWER
+   ========================================================================== */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border-muted);
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  transition: all var(--transition-fast);
+}
+
+.mobile-menu-toggle:hover {
+  border-color: var(--text-white);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.toggle-bar {
+  width: 18px;
+  height: 1.5px;
+  background: var(--text-white);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  display: block;
+}
+
+.mobile-menu-toggle.open .toggle-bar:first-child {
+  transform: translateY(3.25px) rotate(45deg);
+}
+
+.mobile-menu-toggle.open .toggle-bar:last-child {
+  transform: translateY(-3.25px) rotate(-45deg);
+}
+
+.mobile-nav-drawer {
+  position: fixed;
+  top: 74px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(100vh - 74px);
+  height: calc(100dvh - 74px);
+  background: rgba(4, 4, 4, 0.98);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-top: 1px solid var(--border-hairline);
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav-drawer.open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-nav-content {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 2.25rem 1.75rem 3rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1;
+}
+
+.mobile-nav-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.mobile-nav-badge {
+  font-size: 0.65rem;
+  color: var(--status-active);
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  padding: 0.15rem 0.5rem;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border-hairline);
+  text-decoration: none;
+  color: var(--text-offwhite);
+  transition: all var(--transition-fast);
+}
+
+.mobile-link-num {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  color: var(--text-dark);
+  min-width: 28px;
+}
+
+.mobile-link-text {
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  flex: 1;
+}
+
+.mobile-link-arrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 1rem;
+  color: var(--text-dark);
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:active {
+  color: var(--text-white);
+  padding-left: 0.5rem;
+}
+
+.mobile-nav-link:hover .mobile-link-arrow,
+.mobile-nav-link:active .mobile-link-arrow {
+  color: var(--text-white);
+  transform: translateX(4px);
+}
+
+.mobile-nav-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 1.5rem;
+}
+
+.mobile-cta-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 0.85rem;
+}
+
+.mobile-telemetry-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 0.68rem;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 @media (max-width: 860px) {
-  .nav-links,
-  .system-status-indicator {
+  .nav-links {
     display: none;
+  }
+
+  .header-actions {
+    gap: 0.65rem;
+  }
+
+  .header-demo-btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.72rem;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
   }
 
   .problem-grid {

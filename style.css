@@ -157,10 +157,18 @@ body::after {
 }
 
 .brand-logo-img {
-  height: 24px;
+  height: 19px;
   width: auto;
+  max-width: 155px;
+  object-fit: contain;
   filter: brightness(0) invert(1);
+  opacity: 0.92;
   display: block;
+  transition: opacity var(--transition-fast);
+}
+
+.brand-wrapper:hover .brand-logo-img {
+  opacity: 1;
 }
 
 .brand-badge {
