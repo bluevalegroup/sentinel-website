@@ -342,14 +342,15 @@ body::after {
    ========================================================================== */
 .hero-section {
   position: relative;
-  min-height: 82vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
-  padding: 6.5rem 0 6rem 0;
+  justify-content: center;
+  padding: 7rem 0 6.5rem 0;
   background-color: #050505;
   background-image: 
-    linear-gradient(180deg, rgba(5, 5, 5, 0.72) 0%, rgba(5, 5, 5, 0.55) 45%, rgba(5, 5, 5, 0.95) 100%),
-    linear-gradient(90deg, rgba(5, 5, 5, 0.88) 0%, rgba(5, 5, 5, 0.35) 100%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.78) 0%, rgba(5, 5, 5, 0.6) 45%, rgba(5, 5, 5, 0.95) 100%),
+    radial-gradient(circle at 50% 40%, rgba(5, 5, 5, 0.2) 0%, rgba(5, 5, 5, 0.85) 100%),
     url('/assets/sentinel-dashboard-final.png');
   background-size: cover;
   background-position: center top;
@@ -358,49 +359,40 @@ body::after {
   overflow: hidden;
 }
 
-.hero-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 1rem;
-}
-
-.hero-coords {
-  font-family: var(--font-sora), sans-serif;
-  font-size: 0.72rem;
-  color: #8c8a82;
-  letter-spacing: 0.06em;
-}
-
 .hero-content {
-  max-width: 980px;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-title {
   font-family: var(--font-sora), sans-serif;
-  font-size: clamp(2.6rem, 5.5vw, 4.5rem);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
+  font-size: clamp(2.1rem, 3.8vw, 3.25rem);
+  font-weight: 650;
+  letter-spacing: -0.028em;
+  line-height: 1.18;
   color: #ffffff;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1.25rem 0;
+  max-width: 820px;
 }
 
 .hero-description {
   font-family: var(--font-sora), sans-serif;
-  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-size: clamp(0.98rem, 1.3vw, 1.12rem);
   font-weight: 400;
-  color: #c4c2ba;
-  max-width: 740px;
-  line-height: 1.6;
-  margin-bottom: 2.75rem;
+  color: #b0aea5;
+  max-width: 660px;
+  line-height: 1.65;
+  margin-bottom: 2.25rem;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.25rem;
   flex-wrap: wrap;
 }
@@ -1356,70 +1348,6 @@ body::after {
   text-transform: uppercase;
 }
 
-/* ==========================================================================
-   08: BUILT FOR CRITICAL ENVIRONMENTS
-   ========================================================================== */
-.environments-section {
-  padding: 7.5rem 0;
-  border-bottom: 1px solid var(--border-hairline);
-  background: var(--bg-primary);
-}
-
-.environments-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3.5rem;
-}
-
-.env-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-hairline);
-  padding: 2.5rem 2rem;
-  position: relative;
-  transition: all var(--transition-fast);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 280px;
-}
-
-.env-card:hover {
-  border-color: var(--border-muted);
-  background: #0d0d0d;
-}
-
-.env-code {
-  font-family: var(--font-sora), sans-serif;
-  font-size: 0.7rem;
-  color: var(--text-dark);
-  margin-bottom: 1.5rem;
-}
-
-.env-title {
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text-white);
-  margin-bottom: 1rem;
-}
-
-.env-desc {
-  font-size: 0.92rem;
-  color: var(--text-dim);
-  line-height: 1.55;
-}
-
-.env-footer {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-hairline);
-  font-family: var(--font-sora), sans-serif;
-  font-size: 0.65rem;
-  color: var(--text-dark);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
 
 /* ==========================================================================
    09: BLUEVALE DEFENCE
@@ -2067,19 +1995,19 @@ body::after {
 
 .pillars-main-title {
   font-family: var(--font-sora), sans-serif;
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  font-weight: 700;
-  letter-spacing: -0.035em;
+  font-size: clamp(1.85rem, 2.8vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
   color: #141311;
-  line-height: 1.15;
+  line-height: 1.2;
   margin: 0 0 0.85rem 0;
 }
 
 .pillars-main-subtitle {
   font-family: var(--font-sora), sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.62;
   color: #69665f;
   margin: 0;
 }
@@ -2176,32 +2104,22 @@ body::after {
 
 .architecture-section {
   background-color: #000000;
-  padding: 3.5rem 0;
+  padding: 4.5rem 0;
   position: relative;
   width: 100%;
 }
 
 .architecture-card {
   background-color: #080808;
-  border: 1px solid rgba(245, 244, 239, 0.1);
-  border-radius: 18px;
-  padding: 2.65rem 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 3rem 3.25rem;
   display: grid;
   grid-template-columns: 1.2fr 0.88fr;
-  gap: 2.75rem;
+  gap: 3rem;
   align-items: center;
   position: relative;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7);
-}
-
-.architecture-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(245, 244, 239, 0.3), transparent);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .architecture-main {
@@ -2211,18 +2129,18 @@ body::after {
 
 .architecture-title {
   font-family: var(--font-sora), sans-serif;
-  font-size: clamp(2rem, 2.8vw, 2.75rem);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.035em;
+  font-size: clamp(1.85rem, 2.8vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
   color: #f5f4ef;
-  margin-bottom: 1.15rem;
+  margin-bottom: 1rem;
   display: block;
 }
 
 .architecture-desc {
   font-family: var(--font-sora), sans-serif;
-  font-size: clamp(0.92rem, 1vw, 0.98rem);
+  font-size: 0.95rem;
   font-weight: 400;
   line-height: 1.65;
   color: #8c8a82;
@@ -2318,11 +2236,11 @@ body::after {
 .architecture-dossier-card {
   width: 100%;
   max-width: 410px;
-  background: #000000;
-  border: 1px solid rgba(245, 244, 239, 0.12);
-  border-radius: 16px;
-  padding: 1.85rem 2.15rem;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(245, 244, 239, 0.08);
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
   position: relative;
 }
 
@@ -2332,7 +2250,7 @@ body::after {
   gap: 0.7rem;
   margin-bottom: 1.15rem;
   padding-bottom: 0.8rem;
-  border-bottom: 1px solid rgba(245, 244, 239, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .dossier-icon-box {
@@ -2345,7 +2263,7 @@ body::after {
 .dossier-card-title {
   font-family: var(--font-sora), sans-serif;
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #f5f4ef;
   letter-spacing: -0.01em;
   margin: 0;
@@ -2362,7 +2280,7 @@ body::after {
   justify-content: space-between;
   gap: 1.25rem;
   padding: 0.72rem 0;
-  border-bottom: 1px solid rgba(245, 244, 239, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   transition: padding-left 0.2s ease, padding-right 0.2s ease;
 }
 
@@ -2384,8 +2302,8 @@ body::after {
 .dossier-spec-value {
   font-family: var(--font-sora), sans-serif;
   font-size: 0.88rem;
-  font-weight: 600;
-  color: #f5f4ef;
+  font-weight: 500;
+  color: #e8e6df;
   text-align: right;
 }
 
@@ -2451,7 +2369,8 @@ body::after {
 
 .environments-header {
   max-width: 780px;
-  margin-bottom: 3.5rem;
+  margin: 0 auto 3.5rem auto;
+  text-align: center;
 }
 
 .environments-kicker {
@@ -2479,21 +2398,22 @@ body::after {
 
 .environments-title {
   font-family: var(--font-sora), sans-serif;
-  font-size: clamp(2rem, 3.6vw, 2.85rem);
+  font-size: clamp(1.85rem, 2.8vw, 2.4rem);
   font-weight: 600;
-  line-height: 1.15;
+  line-height: 1.2;
   letter-spacing: -0.025em;
   color: #0a0a0a;
-  margin-bottom: 1.15rem;
+  margin-bottom: 0.85rem;
 }
 
 .environments-subtitle {
   font-family: var(--font-sora), sans-serif;
-  font-size: clamp(0.96rem, 1.25vw, 1.08rem);
+  font-size: 0.95rem;
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.62;
   color: #585852;
   max-width: 640px;
+  margin: 0 auto;
 }
 
 /* ==========================================================================
@@ -2836,19 +2756,19 @@ body::after {
 
 .cta-banner-heading {
   font-family: var(--font-sora), sans-serif;
-  font-size: clamp(1.9rem, 3.2vw, 2.75rem);
-  font-weight: 500;
-  line-height: 1.16;
+  font-size: clamp(1.85rem, 2.8vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.2;
   letter-spacing: -0.025em;
   color: #ffffff;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
 }
 
 .cta-banner-subtext {
   font-family: var(--font-sora), sans-serif;
-  font-size: clamp(0.92rem, 1.15vw, 1.02rem);
-  font-weight: 300;
-  line-height: 1.65;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.62;
   color: #9c9c9c;
   max-width: 520px;
   margin-bottom: 2.25rem;
@@ -2896,6 +2816,70 @@ body::after {
 
   .cta-banner-subtext {
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .architecture-card {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 2rem;
+    gap: 2.5rem;
+  }
+
+  .architecture-dossier-wrapper {
+    justify-content: flex-start;
+  }
+
+  .architecture-dossier-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding: 5rem 0 4rem 0;
+    min-height: 70vh;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.25rem);
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .architecture-card {
+    padding: 2rem 1.25rem;
+    border-radius: 12px;
+  }
+
+  .architecture-stacks-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .architecture-dossier-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .dossier-spec-row {
+    gap: 0.75rem;
+  }
+
+  .cta-banner-inner {
+    padding: 2.5rem 1.5rem;
   }
 }
 
