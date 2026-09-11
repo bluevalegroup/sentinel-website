@@ -322,11 +322,11 @@ export default function SentinelHome() {
               {/* Left Column: Dossier Header, Description & Stacks */}
               <div className="architecture-main">
                 <h2 className="architecture-title">
-                  Industrial Grade Architecture
+                  Built for demanding environments
                 </h2>
 
                 <p className="architecture-desc">
-                  Sentinel is built on a modular, GPU-accelerated stack engineered for the most demanding operational environments, from tactical outposts to national grids.
+                  Sentinel is designed for deployment across complex security environments, from individual sites to distributed camera networks. Its architecture supports local and private deployments while keeping video intelligence within the environment where it is needed.
                 </p>
 
                 <div className="architecture-stacks-grid">
@@ -339,37 +339,37 @@ export default function SentinelHome() {
                     <ul className="architecture-stack-list">
                       <li>
                         <span className="stack-bullet" />
-                        <span>Custom Vision-Language Model Core</span>
+                        <span>Vision-Language Models</span>
                       </li>
                       <li>
                         <span className="stack-bullet" />
-                        <span>Temporal Action Detection</span>
+                        <span>Temporal Video Understanding</span>
                       </li>
                       <li>
                         <span className="stack-bullet" />
-                        <span>FAISS Vector Indexing</span>
+                        <span>Semantic Video Search</span>
                       </li>
                     </ul>
                   </div>
 
-                  {/* Security Protocol */}
+                  {/* Security */}
                   <div className="architecture-stack-col stack-security">
                     <h3 className="architecture-stack-heading">
                       <span className="stack-heading-indicator" />
-                      <span>SECURITY PROTOCOL</span>
+                      <span>SECURITY</span>
                     </h3>
                     <ul className="architecture-stack-list">
                       <li>
                         <span className="stack-bullet" />
-                        <span>TLS 1.3 End-to-End Encryption</span>
+                        <span>Encrypted Data</span>
                       </li>
                       <li>
                         <span className="stack-bullet" />
-                        <span>AES-256 Data at Rest</span>
+                        <span>Secure Access Controls</span>
                       </li>
                       <li>
                         <span className="stack-bullet" />
-                        <span>Hardware Root of Trust</span>
+                        <span>Isolated Deployment Options</span>
                       </li>
                     </ul>
                   </div>
@@ -397,33 +397,28 @@ export default function SentinelHome() {
                         <line x1="6" y1="17" x2="6.01" y2="17" />
                       </svg>
                     </div>
-                    <h3 className="dossier-card-title">Deployment Specs</h3>
+                    <h3 className="dossier-card-title">Deployment Options</h3>
                   </div>
 
                   <div className="dossier-specs-list">
                     <div className="dossier-spec-row">
                       <span className="dossier-spec-label">INFERENCE</span>
-                      <span className="dossier-spec-value">Edge / Private Cloud</span>
+                      <span className="dossier-spec-value">Edge / Private Infrastructure</span>
                     </div>
 
                     <div className="dossier-spec-row">
                       <span className="dossier-spec-label">NETWORK</span>
-                      <span className="dossier-spec-value">Air-Gapped Ready</span>
+                      <span className="dossier-spec-value">Connected or Isolated</span>
                     </div>
 
                     <div className="dossier-spec-row">
-                      <span className="dossier-spec-label">LATENCY</span>
-                      <span className="dossier-spec-value">&lt; 50ms (Core Eng)</span>
+                      <span className="dossier-spec-label">DEPLOYMENT</span>
+                      <span className="dossier-spec-value">Single Site / Multi-Site</span>
                     </div>
 
                     <div className="dossier-spec-row">
-                      <span className="dossier-spec-label">ENCRYPTION</span>
-                      <span className="dossier-spec-value">FIPS 140-2 Compliant</span>
-                    </div>
-
-                    <div className="dossier-spec-row">
-                      <span className="dossier-spec-label">SCALABILITY</span>
-                      <span className="dossier-spec-value">Multi-Site, Multi-Region</span>
+                      <span className="dossier-spec-label">VIDEO DATA</span>
+                      <span className="dossier-spec-value">On-Premise / Private Environment</span>
                     </div>
                   </div>
                 </div>
