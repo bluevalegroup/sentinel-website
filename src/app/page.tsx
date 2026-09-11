@@ -71,21 +71,21 @@ const pillarsData: PillarItem[] = [
     id: 'awareness',
     title: 'Active Awareness',
     description:
-      'Real-time multi-object detection and behavioral analysis across 100+ object classes with zero latency.',
+      'Continuously analyze camera feeds to detect people, vehicles, objects and events across your environment.',
     graphic: 'planes',
   },
   {
     id: 'search',
     title: 'Semantic Search',
     description:
-      'Describe any person, vehicle, or event in plain English and locate it across your entire camera network instantly.',
+      'Describe a person, vehicle or event in natural language and find relevant footage across your camera network.',
     graphic: 'contour',
   },
   {
     id: 'shield',
-    title: 'Sovereign Shield',
+    title: 'Sovereign Deployment',
     description:
-      '100% air-gapped deployment with no external telemetry, ensuring total data privacy and security.',
+      'Deploy Sentinel in isolated or air-gapped environments, keeping sensitive video and intelligence within your infrastructure.',
     graphic: 'capsule',
   },
 ];
@@ -257,6 +257,13 @@ export default function SentinelHome() {
           aria-label="Core Capabilities"
         >
           <div className="container">
+            <div className="pillars-header">
+              <h2 className="pillars-main-title">Built for the mission</h2>
+              <p className="pillars-main-subtitle">
+                Sentinel is designed for the environments where visibility, speed and control matter most.
+              </p>
+            </div>
+
             <div className="pillars-grid">
               {pillarsData.map((pillar) => (
                 <div className="pillar-card" key={pillar.id}>
