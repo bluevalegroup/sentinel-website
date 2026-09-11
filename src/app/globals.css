@@ -3213,7 +3213,7 @@ body::after {
 
 @media (max-width: 640px) {
   .container {
-    padding: 0 1.25rem;
+    padding: 0 1rem;
   }
 
   .hero-section {
@@ -3222,9 +3222,9 @@ body::after {
   }
 
   .hero-title {
-    font-size: clamp(1.2rem, 5.2vw, 1.65rem);
-    line-height: 1.34;
-    margin-bottom: 1.15rem;
+    font-size: clamp(1.4rem, 6.2vw, 1.88rem);
+    line-height: 1.26;
+    margin-bottom: 1.25rem;
     letter-spacing: -0.025em;
   }
 
