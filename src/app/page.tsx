@@ -2,11 +2,64 @@
 
 import React, { useState } from 'react';
 
+interface EnvironmentItem {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+}
+
+const environmentsData: EnvironmentItem[] = [
+  {
+    id: '01',
+    title: 'Border & Perimeter Security',
+    description:
+      'Persistent monitoring across large, unstructured terrain with minimal human oversight.',
+    image: '/assets/env-border.jpg',
+  },
+  {
+    id: '02',
+    title: 'Critical Infrastructure',
+    description:
+      'Airports, power facilities, ports, and transit hubs requiring continuous situational awareness.',
+    image: '/assets/env-infrastructure.jpg',
+  },
+  {
+    id: '03',
+    title: 'Urban Command & Control',
+    description:
+      'City-scale camera networks supporting coordinated response and real-time intelligence.',
+    image: '/assets/env-urban.jpg',
+  },
+  {
+    id: '04',
+    title: 'Industrial & Manufacturing Sites',
+    description:
+      'High-risk facilities where intrusion, safety, and operational anomalies must be detected early.',
+    image: '/assets/env-industrial.jpg',
+  },
+  {
+    id: '05',
+    title: 'Defense & Tactical Installations',
+    description:
+      'Secure deployments operating in disconnected or air-gapped environments.',
+    image: '/assets/env-defense.jpg',
+  },
+  {
+    id: '06',
+    title: 'Logistics, Ports & Transport Corridors',
+    description:
+      'Continuous monitoring across large, high-throughput environments with complex movement patterns.',
+    image: '/assets/env-logistics.jpg',
+  },
+];
+
 export default function SentinelHome() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [activeEnvIndex, setActiveEnvIndex] = useState<number>(0);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -158,6 +211,68 @@ export default function SentinelHome() {
 
       {/* MAIN CONTENT AREA */}
       <main id="mainContent" style={{ flex: 1 }}>
+        {/* BUILT FOR REAL-WORLD ENVIRONMENTS SECTION */}
+        <section
+          className="environments-section"
+          id="environments"
+          aria-label="Built for Real-World Environments"
+        >
+          <div className="container">
+            <div className="environments-header">
+              <h2 className="environments-title">
+                Built for Real-World Environments
+              </h2>
+              <p className="environments-subtitle">
+                Sentinel is deployed in environments where decisions are time-critical, conditions are imperfect, and failure has consequences.
+              </p>
+            </div>
+
+            <div className="environments-accordion">
+              {environmentsData.map((item, index) => {
+                const isActive = index === activeEnvIndex;
+                return (
+                  <div
+                    key={item.id}
+                    className={`accordion-panel ${isActive ? 'active' : ''}`}
+                    onClick={() => setActiveEnvIndex(index)}
+                    onMouseEnter={() => setActiveEnvIndex(index)}
+                    role="tab"
+                    aria-selected={isActive}
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setActiveEnvIndex(index);
+                      }
+                    }}
+                  >
+                    {/* Background photo */}
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="accordion-panel-img"
+                      loading={index < 2 ? 'eager' : 'lazy'}
+                    />
+                    <div className="accordion-panel-gradient" />
+
+                    {/* Collapsed title (visible when collapsed) */}
+                    <div className="accordion-collapsed-meta">
+                      <span className="accordion-collapsed-title">{item.title}</span>
+                    </div>
+
+                    {/* Expanded content overlay (visible when active) */}
+                    <div className="accordion-expanded-content">
+                      <div className="accordion-expanded-bottom">
+                        <h3 className="accordion-title">{item.title}</h3>
+                        <p className="accordion-desc">{item.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         <section className="cta-banner-section" aria-label="Call to Action">
           <div className="container">
             <div className="cta-banner-card">

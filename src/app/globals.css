@@ -2052,6 +2052,285 @@ body::after {
 }
 
 /* ==========================================================================
+   BUILT FOR REAL-WORLD ENVIRONMENTS SECTION
+   Light Cream Architectural Canvas, High-Contrast Defense Grid, 100% Sora
+   ========================================================================== */
+
+.environments-section {
+  background-color: #f5f4ef;
+  color: #0d0d0d;
+  padding: 6.5rem 0;
+  border: none;
+  position: relative;
+  width: 100%;
+}
+
+.environments-header {
+  max-width: 780px;
+  margin-bottom: 3.5rem;
+}
+
+.environments-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+}
+
+.environments-kicker-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #0d0d0d;
+  display: inline-block;
+}
+
+.environments-kicker-text {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #222222;
+  text-transform: uppercase;
+}
+
+.environments-title {
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(2rem, 3.6vw, 2.85rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #0a0a0a;
+  margin-bottom: 1.15rem;
+}
+
+.environments-subtitle {
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(0.96rem, 1.25vw, 1.08rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: #585852;
+  max-width: 640px;
+}
+
+/* ==========================================================================
+   EXPANDING PANORAMIC ACCORDION (OPTION 2)
+   Horizontal Interactive Slits Expanding into Widescreen View on Hover/Click
+   ========================================================================== */
+
+.environments-accordion {
+  display: flex;
+  height: 520px;
+  width: 100%;
+  gap: 0.75rem;
+  align-items: stretch;
+  position: relative;
+}
+
+.accordion-panel {
+  position: relative;
+  flex: 1;
+  min-width: 68px;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #050505;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  border: none;
+  transition: flex 0.42s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease;
+  outline: none;
+}
+
+.accordion-panel:hover {
+  border: none;
+}
+
+.accordion-panel.active {
+  flex: 6;
+  cursor: default;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.22);
+  border: none;
+}
+
+.accordion-panel:focus-visible {
+  outline: 2px solid #0d0d0d;
+}
+
+/* Background image */
+.accordion-panel-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85);
+}
+
+.accordion-panel.active .accordion-panel-img {
+  filter: brightness(1);
+}
+
+/* Gradient overlay */
+.accordion-panel-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    rgba(0, 0, 0, 0.8) 75%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.accordion-panel:not(.active) .accordion-panel-gradient {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Collapsed vertical indicator: instant toggle */
+.accordion-collapsed-meta {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  z-index: 3;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  transition: none;
+}
+
+.accordion-panel.active .accordion-collapsed-meta {
+  opacity: 0;
+  visibility: hidden;
+  transition: none;
+}
+
+.accordion-collapsed-title {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Expanded content overlay: instant toggle */
+.accordion-expanded-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.25rem;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: none;
+}
+
+.accordion-panel.active .accordion-expanded-content {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: none;
+}
+
+.accordion-expanded-bottom {
+  width: 100%;
+  max-width: 100%;
+}
+
+.accordion-title {
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.65rem;
+  max-width: 480px;
+}
+
+.accordion-desc {
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(0.88rem, 1.05vw, 0.95rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  max-width: 480px;
+}
+
+/* Mobile & Tablet Responsiveness: Vertical accordion stacking */
+@media (max-width: 860px) {
+  .environments-accordion {
+    flex-direction: column;
+    height: auto;
+    gap: 0.65rem;
+  }
+
+  .accordion-panel {
+    min-width: auto;
+    width: 100%;
+    height: 72px;
+    flex: none;
+    transition: height 0.42s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease;
+    border: none;
+  }
+
+  .accordion-panel.active {
+    height: 320px;
+    flex: none;
+    border: none;
+  }
+
+  .accordion-collapsed-meta {
+    bottom: auto;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    writing-mode: horizontal-tb;
+    flex-direction: row;
+    gap: 0.85rem;
+  }
+
+  .accordion-expanded-content {
+    padding: 1.5rem;
+  }
+
+  .accordion-expanded-bottom {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .accordion-title {
+    font-size: 1.35rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .accordion-desc {
+    font-size: 0.86rem;
+  }
+}
+
+/* ==========================================================================
    CONTOUR-STYLE CTA BANNER COMPONENT
    Dithered Topo Texture, Halftone Stipple Overlay, Sora Typography
    ========================================================================== */
