@@ -252,15 +252,6 @@ export default function SentinelHome() {
              =================================================================== */}
         <section className="hero-section" id="platform" aria-label="Platform Hero">
           <div className="container">
-            <div className="hero-meta">
-              <span className="tactical-tag">
-                SOVEREIGN DEFENCE &amp; CRITICAL INFRASTRUCTURE
-              </span>
-              <span className="hero-coords">
-                37°46&apos;30.2&quot;N 122°25&apos;08.4&quot;W // LATENCY: 12ms // VISION-LANGUAGE ENGINE
-              </span>
-            </div>
-
             <div className="hero-content">
               <h1 className="hero-title">
                 Understanding context, not just movement.
