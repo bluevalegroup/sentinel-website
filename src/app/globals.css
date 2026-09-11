@@ -3844,72 +3844,7 @@ body::after {
   overflow: hidden;
 }
 
-.video-corner-reticle {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  pointer-events: none;
-  z-index: 10;
-}
 
-.video-corner-reticle.top-left {
-  top: 6px;
-  left: 6px;
-  border-top: 2px solid rgba(255, 255, 255, 0.5);
-  border-left: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-.video-corner-reticle.top-right {
-  top: 6px;
-  right: 6px;
-  border-top: 2px solid rgba(255, 255, 255, 0.5);
-  border-right: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-.video-corner-reticle.bottom-left {
-  bottom: 6px;
-  left: 6px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-  border-left: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-.video-corner-reticle.bottom-right {
-  bottom: 6px;
-  right: 6px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-  border-right: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-.video-telemetry-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.65rem 1.25rem;
-  background: #0d0f13;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  font-family: var(--font-sora), sans-serif;
-  font-size: 0.72rem;
-  color: #888888;
-  letter-spacing: 0.05em;
-}
-
-.video-telemetry-left {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.telemetry-sep {
-  color: rgba(255, 255, 255, 0.2);
-}
-
-.telemetry-status {
-  color: #22c55e;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
 
 .demo-video-responsive {
   position: relative;

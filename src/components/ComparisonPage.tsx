@@ -225,27 +225,13 @@ export function ComparisonPage({
         <section className="compare-video-section">
           <div className="container">
             <div className="compare-video-info">
-              <span className="compare-video-tag mono">02 // LIVE DEMONSTRATION</span>
+              <span className="compare-video-tag mono">LIVE DEMO</span>
               <h2 className="compare-section-title">See Sentinel Live in Action</h2>
               <p className="compare-section-desc">
                 Watch how Sentinel delivers real-time multi-camera persistent tracking across live streams with sub-second alert dispatch.
               </p>
             </div>
-            <div className="demo-video-frame-container" style={{ maxWidth: '960px', margin: '0 auto' }}>
-              <div className="video-corner-reticle top-left" aria-hidden="true" />
-              <div className="video-corner-reticle top-right" aria-hidden="true" />
-              <div className="video-corner-reticle bottom-left" aria-hidden="true" />
-              <div className="video-corner-reticle bottom-right" aria-hidden="true" />
-              <div className="video-telemetry-bar">
-                <div className="video-telemetry-left">
-                  <span className="telemetry-tag">FEED // SENTINEL_PLATFORM_DEMO</span>
-                  <span className="telemetry-sep">|</span>
-                  <span className="telemetry-tag">VS {competitorName.toUpperCase()}</span>
-                </div>
-                <div className="video-telemetry-right">
-                  <span className="telemetry-status">1080P60 STREAM</span>
-                </div>
-              </div>
+            <div className="demo-video-frame-container" style={{ maxWidth: '960px', margin: '0 auto', borderRadius: '10px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.12)' }}>
               <div className="demo-video-responsive">
                 <iframe
                   src="https://www.youtube-nocookie.com/embed/3QPpbrHfTOQ?rel=0&modestbranding=1"
