@@ -93,10 +93,10 @@ const pillarsData: PillarItem[] = [
 
 const SEARCH_COMMANDS = [
   'a person passing a bag to another person',
-  'black SUV leaving through gate 4 without stopping',
-  'individual in high-vis vest near perimeter fence',
-  'unattended backpack left in main terminal corridor',
-  'person in dark hoodie running towards east exit',
+  'a person in a red jacket',
+  'someone carrying a backpack',
+  'two people walking together',
+  'a white delivery van',
 ];
 
 export default function SentinelHome() {
