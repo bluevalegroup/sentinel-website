@@ -22,7 +22,9 @@ export const metadata: Metadata = {
   description:
     'Sentinel is an AI Video Intelligence Platform developed by Bluevale Defence. Continuously analyze camera feeds, detect anomalies and investigate security footage using natural language.',
   icons: {
-    icon: '/assets/sentinel logo icon only.png',
+    icon: '/assets/sentinel-icon.png',
+    shortcut: '/assets/sentinel-icon.png',
+    apple: '/assets/sentinel-icon.png',
   },
 };
 

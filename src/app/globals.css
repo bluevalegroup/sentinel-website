@@ -158,6 +158,27 @@ body::after {
   display: block;
 }
 
+.brand-logo-icon {
+  height: 30px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  display: block;
+  transition: transform var(--transition-fast);
+}
+
+.brand-wrapper:hover .brand-logo-icon {
+  transform: scale(1.05);
+}
+
+.brand-name {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--text-white);
+  text-transform: uppercase;
+}
+
 .brand-badge {
   font-family: var(--font-mono), monospace;
   font-size: 0.65rem;
