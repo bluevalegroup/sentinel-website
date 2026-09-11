@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   WireframePlanes,
   WireframeContour,
@@ -90,12 +90,53 @@ const pillarsData: PillarItem[] = [
   },
 ];
 
+const SEARCH_COMMANDS = [
+  'a person passing a bag to another person',
+  'black SUV leaving through gate 4 without stopping',
+  'individual in high-vis vest near perimeter fence',
+  'unattended backpack left in main terminal corridor',
+  'person in dark hoodie running towards east exit',
+];
+
 export default function SentinelHome() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [activeEnvIndex, setActiveEnvIndex] = useState<number>(0);
+
+  // Typewriter animation state for hero natural language search
+  const [currentText, setCurrentText] = useState<string>('');
+  const [commandIndex, setCommandIndex] = useState<number>(0);
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
+
+  useEffect(() => {
+    const fullText = SEARCH_COMMANDS[commandIndex];
+    let timer: NodeJS.Timeout;
+
+    if (!isDeleting) {
+      if (currentText.length < fullText.length) {
+        timer = setTimeout(() => {
+          setCurrentText(fullText.slice(0, currentText.length + 1));
+        }, 65);
+      } else {
+        timer = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2400);
+      }
+    } else {
+      if (currentText.length > 0) {
+        timer = setTimeout(() => {
+          setCurrentText(fullText.slice(0, currentText.length - 1));
+        }, 30);
+      } else {
+        setIsDeleting(false);
+        setCommandIndex((prev) => (prev + 1) % SEARCH_COMMANDS.length);
+      }
+    }
+
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, commandIndex]);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -239,22 +280,22 @@ export default function SentinelHome() {
           <div className="container">
             <div className="hero-content">
               <h1 className="hero-title">
-                Your cameras see everything. Sentinel finds what matters.
+                Your cameras see everything.
+                <br />
+                Sentinel finds what matters.
               </h1>
               <p className="hero-description">
-                Search, understand and investigate video across your camera network using natural language.
+                Search, understand and investigate video across your camera network
+                <br className="desc-br" />
+                using natural language.
               </p>
-              <div className="hero-actions">
-                <button
-                  className="btn btn-primary"
-                  onClick={() => setIsModalOpen(true)}
-                  id="heroDemoBtn"
-                >
-                  Request a Demo <span className="btn-arrow">→</span>
-                </button>
-                <a href="#capabilities" className="btn btn-secondary">
-                  Explore Capabilities <span className="btn-arrow">↓</span>
-                </a>
+
+              {/* Natural Language Search Input Demonstration */}
+              <div className="hero-search-bar" aria-label="Natural Language Video Search Demo">
+                <span className="hero-search-text">
+                  {currentText}
+                  <span className="hero-search-cursor">|</span>
+                </span>
               </div>
             </div>
           </div>
@@ -416,12 +457,12 @@ export default function SentinelHome() {
         <section
           className="environments-section"
           id="environments"
-          aria-label="Built for Real-World Environments"
+          aria-label="Built for real-world environments"
         >
           <div className="container">
             <div className="environments-header">
               <h2 className="environments-title">
-                Built for Real-World Environments
+                Built for real-world environments
               </h2>
               <p className="environments-subtitle">
                 Sentinel is deployed in environments where decisions are time-critical, conditions are imperfect, and failure has consequences.
@@ -554,7 +595,7 @@ export default function SentinelHome() {
                     onClick={() => setIsModalOpen(true)}
                     id="ctaContactBtn"
                   >
-                    Request a Demo <span className="btn-arrow">→</span>
+                    Request a Demo
                   </button>
                 </div>
               </div>
