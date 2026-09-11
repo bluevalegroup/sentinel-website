@@ -254,10 +254,10 @@ export default function SentinelHome() {
           <div className="container">
             <div className="hero-content">
               <h1 className="hero-title">
-                Understanding context, not just movement.
+                See everything. Search what matters.
               </h1>
               <p className="hero-description">
-                Sentinel uses sovereign vision-language models to transform passive camera networks into active operational intelligence.
+                Sentinel turns camera networks into searchable video intelligence, enabling operators to find, understand and investigate events using natural language.
               </p>
               <div className="hero-actions">
                 <button
